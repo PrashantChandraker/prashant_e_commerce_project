@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:prashant_e_commerce_project/features/authentication/controllers.onboarding/onboarding_controller.dart';
-import 'package:prashant_e_commerce_project/features/authentication/screens.onboarding/widgets/OnBoarding_skipButton.dart';
-import 'package:prashant_e_commerce_project/features/authentication/screens.onboarding/widgets/onBoarding_nextButton.dart';
-import 'package:prashant_e_commerce_project/features/authentication/screens.onboarding/widgets/onBoarding_page.dart';
-import 'package:prashant_e_commerce_project/features/authentication/screens.onboarding/widgets/onBoarding_pageindicator.dart';
+import 'package:prashant_e_commerce_project/features/authentication/controllers/onBoarding/onboarding_controller.dart';
+import 'package:prashant_e_commerce_project/features/authentication/screens/onBoarding/widgets/OnBoarding_skipButton.dart';
+import 'package:prashant_e_commerce_project/features/authentication/screens/onBoarding/widgets/onBoarding_nextButton.dart';
+import 'package:prashant_e_commerce_project/features/authentication/screens/onBoarding/widgets/onBoarding_page.dart';
+import 'package:prashant_e_commerce_project/features/authentication/screens/onBoarding/widgets/onBoarding_pageindicator.dart';
 
 import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
 

@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import 'package:prashant_e_commerce_project/features/authentication/screens/login/login.dart';
+
 class OnBoardingController extends GetxController{
   static OnBoardingController get instance => Get.find();
 
@@ -46,5 +48,3 @@ void skipPage() {
 
 }
 
-class LoginScreen {
-}

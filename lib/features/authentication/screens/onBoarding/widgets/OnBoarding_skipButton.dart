@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prashant_e_commerce_project/features/authentication/controllers.onboarding/onboarding_controller.dart';
+import 'package:prashant_e_commerce_project/features/authentication/controllers/onBoarding/onboarding_controller.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/device/device_utility.dart';
 

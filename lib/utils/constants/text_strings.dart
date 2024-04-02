@@ -3,7 +3,6 @@ class TTexts {
   static String onBoardingtitle2 = "Select payement method";
   static String onBoardingtitle3 = "Deliver at your door step";
 
-  
   static String onBoardingSubtitle1 =
       "Welcome to a world of limitless choises - your product Awaits!";
   static String onBoardingSubtitle2 =
@@ -17,7 +16,7 @@ class TTexts {
 
   static const String firstName = "First Name";
 
-  static const String lastNome = "Last Name";
+  static const String lastName = "Last Name";
 
   static const String email = "E-Mail";
   static const String password = "Password";
@@ -41,6 +40,14 @@ class TTexts {
   static const String orSignUpWith = "or sign up with";
 
   static const String iAgreeTo = "I agree to";
+
+  static const String and = "and";
+
+  static const String done = "Done";
+
+  static const String submit = "submit";
+
+  static const String continuee = "continue";
 
   static const String privacyPolicy = "Privacy Policy";
 
