@@ -1,10 +1,8 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
 
 class TDeviceutils {
@@ -37,7 +35,7 @@ class TDeviceutils {
     return MediaQuery.of(Get.context!).size.height;
   }
 
-  static double getScreenWidth() {
+  static double getScreenWidth(BuildContext context) {
     return MediaQuery.of(Get.context!).size.width;
   }
 

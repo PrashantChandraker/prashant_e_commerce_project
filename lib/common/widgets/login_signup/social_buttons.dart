@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';

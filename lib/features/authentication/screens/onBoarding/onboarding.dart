@@ -1,7 +1,6 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:prashant_e_commerce_project/features/authentication/controllers/onBoarding/onboarding_controller.dart';
 import 'package:prashant_e_commerce_project/features/authentication/screens/onBoarding/widgets/OnBoarding_skipButton.dart';

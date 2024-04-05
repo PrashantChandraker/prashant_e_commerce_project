@@ -13,7 +13,7 @@ class App extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.LightTheme, // lighttheme
         darkTheme: TAppTheme.DarkTheme, //darktheme
-        home: OnBoardScreen(),
+        home:const OnBoardScreen(),
         );
   }
 }

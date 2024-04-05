@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:prashant_e_commerce_project/features/personalization/screens/settings/settings.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/home/home.dart';
+import 'package:prashant_e_commerce_project/features/shop/screens/store/store.dart';
+import 'package:prashant_e_commerce_project/features/shop/screens/wishlist/wishlist.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
@@ -42,15 +45,9 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-   HomeScreen(),
-    Container(
-      color: Colors.purple,
-    ),
-    Container(
-      color: Colors.orange,
-    ),
-    Container(
-      color: Colors.red,
-    )
+   const HomeScreen(),
+   const StoreScreen(),
+   const FavrouiteScreen(),
+   const SettingsScreen()
   ];
 }

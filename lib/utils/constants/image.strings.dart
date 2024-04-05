@@ -21,6 +21,35 @@ class TImages {
 
   // -- Icons
   static String verifyemailLogo = "assets/icons/email_icon.png";
-
   static String successlogo = "assets/icons/success_icon.png";
+
+  // +> categories
+  static String mobilelogo = "assets/icons/categories/mobile_logo_image.jpg";
+
+  // +> banners
+  static String nikelogo = "assets/images/banners/nike_shoe.jpg";
+  static String nikelogo3 = "assets/images/banners/nike_shoe3.png";
+  static String nikelogo2 = "assets/images/banners/nike2.jpg";
+ static String tshirtBanner =  "assets/images/banners/Tshirt_banner.avif";
+
+
+
+ // products
+
+ static String shoeimage1 = "assets/images/products/running-shoes.png";
+
+ static String shirt = "assets/icons/polo-shirt.png";
+
+ static String shirt_1 = "assets/images/products/shirt_1.jpg";
+
+ static String nikepants = "assets/images/products/nike_pants.jpg";
+
+ static String nikeshoe2 = "assets/images/products/nike_shoes.jpg";
+
+ static String demouser = "assets/images/user/demo_user.png";
+
+
+ static String prashant = "assets/images/user/prashant.png";
+
+
 }

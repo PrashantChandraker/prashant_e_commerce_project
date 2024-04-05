@@ -10,7 +10,7 @@ class TTexts {
   static String onBoardingSubtitle3 =
       "From our Doorstep to yours - Swift,Secure, and Contactless Delivery";
   static String homeAppbarTitle = "Good day for shopping";
-  static String homeAppbarSubTitle = "Suraj gujarathi";
+  static String homeAppbarSubTitle = "Prashant Chandraker";
 
 //-- Authentication Form Text
 
@@ -26,6 +26,8 @@ class TTexts {
   static const String username = "Username";
 
   static const String phoneNo = "Phone Number";
+
+  static const String mightlike = "You Might Like";
 
   static const String rememberMe = "Remember Me";
 
@@ -44,6 +46,8 @@ class TTexts {
   static const String and = "and";
 
   static const String done = "Done";
+
+  static const String store = "Store";
 
   static const String submit = "submit";
 
