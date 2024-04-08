@@ -6,6 +6,7 @@ import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/contain
 import 'package:prashant_e_commerce_project/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:prashant_e_commerce_project/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/section_heading.dart';
+import 'package:prashant_e_commerce_project/features/personalization/screens/address/address.dart';
 import 'package:prashant_e_commerce_project/features/personalization/screens/profile/widgets/profile.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
@@ -58,7 +59,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title: 'My Adresses',
                     subtitle: 'Set Shopping delivery adress',
-                    ontap: () {},
+                    ontap:()=> Get.to(()=> const UserAddressScreen(),),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.shopping_cart,

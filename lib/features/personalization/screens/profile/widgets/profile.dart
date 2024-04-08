@@ -13,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TAppBar(
+      appBar: const TAppBar(
         showbackarrow: true,
         giventitle: Text('Profile'),
       ),
@@ -21,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
       //body
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
               SizedBox(
@@ -35,33 +35,33 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text('Change Profile Picture'),
+                      child: const Text('Change Profile Picture'),
                     ),
                   ],
                 ),
               ),
               //details
-              SizedBox(height: TSizes.spaceBtwItems,),
-              Divider(),
-              SizedBox(height: TSizes.spaceBtwItems,),
-              TSectionHeading(title: 'Profile Information', showactionbutton: false,),
-              SizedBox(height: TSizes.spaceBtwItems,),
+              const SizedBox(height: TSizes.spaceBtwItems,),
+              const Divider(),
+              const SizedBox(height: TSizes.spaceBtwItems,),
+              const TSectionHeading(title: 'Profile Information', showactionbutton: false,),
+              const SizedBox(height: TSizes.spaceBtwItems,),
 
 
               TProfileMenu(onPressed: () {}, title: 'Name', value: 'Pashant Chandraker'),
               TProfileMenu(onPressed: () {}, title: 'User Name', value: 'Pashant_08',  icon: null,),
-               SizedBox(height: TSizes.spaceBtwItems,),
-              Divider(),
-              SizedBox(height: TSizes.spaceBtwItems,),
-               TSectionHeading(title: 'Personal Information', showactionbutton: false,),
+               const SizedBox(height: TSizes.spaceBtwItems,),
+              const Divider(),
+              const SizedBox(height: TSizes.spaceBtwItems,),
+               const TSectionHeading(title: 'Personal Information', showactionbutton: false,),
               TProfileMenu(onPressed: () {}, title: 'User-ID', value: '0608', icon: Iconsax.copy,),
                TProfileMenu(onPressed: () {}, title: 'Email-ID', value: 'prashantchandraker1@gmail.com'),
               TProfileMenu(onPressed: () {}, title: 'Contact no.', value: '8827530290'),
               TProfileMenu(onPressed: () {}, title: 'Gender', value: 'Male', icon: null,),
               TProfileMenu(onPressed: () {}, title: 'DOB', value: '08/07/1999',  icon: null,),
-               Divider(),
-              SizedBox(height: TSizes.spaceBtwItems,),
-              Center(child: TextButton(onPressed: () {}, child: Text('Delete Account', style: TextStyle(color: Colors.red),),),)
+               const Divider(),
+              const SizedBox(height: TSizes.spaceBtwItems,),
+              Center(child: TextButton(onPressed: () {}, child: const Text('Delete Account', style: TextStyle(color: Colors.red),),),)
 
             ],
           ),

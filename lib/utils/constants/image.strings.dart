@@ -51,5 +51,7 @@ class TImages {
 
  static String prashant = "assets/images/user/prashant.png";
 
+ static String nikesmalllogo = "assets/logos/nike_small_logo.png";
+
 
 }

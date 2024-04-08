@@ -4,7 +4,7 @@ import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 
 class TRoundedImage extends StatelessWidget {
-  const TRoundedImage({
+  const   TRoundedImage({
     super.key,
     this.width,
     this.height,
