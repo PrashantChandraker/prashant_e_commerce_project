@@ -6,7 +6,6 @@ import 'package:prashant_e_commerce_project/features/personalization/screens/add
 import 'package:prashant_e_commerce_project/features/personalization/screens/address/widgets/add_new_address.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
-import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
 class UserAddressScreen extends StatelessWidget {
   const UserAddressScreen({super.key});
@@ -18,11 +17,11 @@ class UserAddressScreen extends StatelessWidget {
         onPressed: () => Get.to(
           () => const AddNewAddressScreen(),
         ),
+        backgroundColor: TColors.primary,
         child: const Icon(
           Iconsax.add,
           color: TColors.white,
         ),
-        backgroundColor: TColors.primary,
       ),
       appBar: TAppBar(
         showbackarrow: true,

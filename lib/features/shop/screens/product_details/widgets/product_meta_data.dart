@@ -4,7 +4,6 @@ import 'package:prashant_e_commerce_project/common/widgets/images/t_circular_ima
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_price_text.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/T_brand_title_text_with_verifiedIcon.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/product_title.dart';
-import 'package:prashant_e_commerce_project/common/widgets/texts/t_brand_title_text.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/enums.dart';
 import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
@@ -62,7 +61,7 @@ class TProductMetaDeta extends StatelessWidget {
         ),
 
         //title
-        TProductTitleText(title: 'Brown Nike Sports track pants'),
+        const TProductTitleText(title: 'Brown Nike Sports track pants'),
         const SizedBox(
           height: TSizes.spaceBtwItems / 1.5,
         ),
@@ -94,11 +93,11 @@ class TProductMetaDeta extends StatelessWidget {
             height: 32,
              overlaycolor: dark? TColors.white : TColors.black,
             image: TImages.nikesmalllogo),
-            SizedBox(width: TSizes.spaceBtwItems/2,),
-           TBrandTitleWithVerifiedIcon(title: 'Nike', givenbrandtextsize: TextSizes.medium,),
+            const SizedBox(width: TSizes.spaceBtwItems/2,),
+           const TBrandTitleWithVerifiedIcon(title: 'Nike', givenbrandtextsize: TextSizes.medium,),
          ],
        ),
-       SizedBox(height: TSizes.spaceBtwItems,)
+       const SizedBox(height: TSizes.spaceBtwItems,)
       ],
     );
   }

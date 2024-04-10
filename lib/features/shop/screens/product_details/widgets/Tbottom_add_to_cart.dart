@@ -54,11 +54,11 @@ class TBottomAddToCart extends StatelessWidget {
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.all(TSizes.md),
+              padding: const EdgeInsets.all(TSizes.md),
               backgroundColor: TColors.black,
-              side: BorderSide(color: TColors.black)
+              side: const BorderSide(color: TColors.black)
             ),
-            onPressed: () {}, child: Text('Add to cart'))
+            onPressed: () {}, child: const Text('Add to cart'))
         ],
       ),
     );

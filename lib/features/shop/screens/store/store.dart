@@ -28,7 +28,7 @@ class StoreScreen extends StatelessWidget {
                 iconcolor: THelperFunctions.isDarkmode(context)
                     ? TColors.white
                     : TColors.black,
-                onPressed: () {}),
+                ),
           ],
         ),
         body: NestedScrollView(

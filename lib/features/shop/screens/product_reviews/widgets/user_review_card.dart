@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/TRoundedContainer.dart';
 import 'package:prashant_e_commerce_project/common/widgets/products/ratings/rating_indicator.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
@@ -79,7 +78,7 @@ class UserReviewCard extends StatelessWidget {
         TRoundedContainer(
           backgroundColor: dark ? TColors.darkerGrey : TColors.grey,
           child: Padding(
-            padding: EdgeInsets.all(TSizes.md),
+            padding: const EdgeInsets.all(TSizes.md),
             child: Column(
               children: [
                 Row(
