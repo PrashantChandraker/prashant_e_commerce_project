@@ -45,7 +45,9 @@ class TAppBar extends StatelessWidget implements PreferredSizeWidget {
                 : null,
 
                 title: giventitle,
-               titleTextStyle: TextStyle(color: dark? TColors.white: TColors.black),
+               titleTextStyle: TextStyle(
+                fontSize: TSizes.lg,
+                color: dark? TColors.white: TColors.black),
                 actions: givenactions,
       ),
     );

@@ -34,6 +34,7 @@ class TImages {
 
 
 
+
  // products
 
  static String shoeimage1 = "assets/images/products/running-shoes.png";
@@ -52,6 +53,10 @@ class TImages {
  static String prashant = "assets/images/user/prashant.png";
 
  static String nikesmalllogo = "assets/logos/nike_small_logo.png";
+
+
+ // payments methods
+  static String paypal= "assets/icons/payment_methods/paypal.png";
 
 
 }

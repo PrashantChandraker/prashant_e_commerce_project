@@ -28,7 +28,7 @@ class TPricingCalculator {
   }
 
   static double getTaxRateForLocation(String location) {
-    return 0.10;
+    return 0.10; //tax rate
   }
 
   static double getShippingCost(String location) {

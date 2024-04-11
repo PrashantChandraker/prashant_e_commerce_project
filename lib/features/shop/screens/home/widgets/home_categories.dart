@@ -1,7 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:prashant_e_commerce_project/common/widgets/image_text_widgets/vertical_image_text.dart';
 import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
+
+import '../../sub_category/sub_categories.dart';
 
 class THomeCategories extends StatelessWidget {
   const THomeCategories({
@@ -19,7 +22,7 @@ class THomeCategories extends StatelessWidget {
           return TverticalCirculartextimage(
             image: TImages.mobilelogo,
             title: 'Mobiles',
-            ontap: () {},
+            ontap: ()=> Get.to(()=> const SubCategoriesScreen())
           );
         },
       ),

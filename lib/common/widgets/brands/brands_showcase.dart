@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/TRoundedContainer.dart';
-import 'package:prashant_e_commerce_project/features/shop/screens/store/widgets/t_brand_card.dart';
+import 'package:prashant_e_commerce_project/common/widgets/brands/t_brand_card.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';

@@ -11,6 +11,8 @@ import 'package:prashant_e_commerce_project/features/personalization/screens/pro
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 
+import '../../../shop/screens/order/order_screen.dart';
+
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
@@ -71,7 +73,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subtitle: 'In Progress and completed Orders',
-                    ontap: () {},
+                    ontap: () => Get.to(() => const TOrderScreen(),),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.bank,

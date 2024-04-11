@@ -3,6 +3,8 @@ import 'package:get/route_manager.dart';
 import 'package:prashant_e_commerce_project/features/authentication/screens/onBoarding/onboarding.dart';
 import 'package:prashant_e_commerce_project/utils/theme/theme.dart';
 
+import 'utils/constants/colors.dart';
+
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -13,7 +15,11 @@ class App extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.LightTheme, // lighttheme
         darkTheme: TAppTheme.DarkTheme, //darktheme
-        home:const OnBoardScreen(),
+        
+        home:const Scaffold(backgroundColor: TColors.primary,
+        body: Center(child: 
+        CircularProgressIndicator(color: Colors.white,),),
+        ),
         );
   }
 }

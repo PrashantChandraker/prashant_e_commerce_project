@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:prashant_e_commerce_project/common/widgets/layouts/grid_layout.dart';
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_card_vertical.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/section_heading.dart';
+import 'package:prashant_e_commerce_project/features/shop/screens/all_Products/all_products.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/home/widgets/home_app_bar.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/home/widgets/home_promo_slider.dart';
@@ -90,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                     title: 'Popular Products',
                     showactionbutton: true,
                     giventextcolor: THelperFunctions.isDarkmode(context) ? TColors.white : TColors.dark,
-                    onpressed: () {},
+                    onpressed: ()=> Get.to(()=> const AllProducts())
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,

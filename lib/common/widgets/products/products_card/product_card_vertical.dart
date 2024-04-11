@@ -22,7 +22,9 @@ class TProductCArdVertical extends StatelessWidget {
     final dark = THelperFunctions.isDarkmode(context);
     //container with side paddings, colour , edge, shadow and radius
     return GestureDetector(
-      onTap: () => Get.to(() => const ProductDetails(),),
+      onTap: () => Get.to(
+        () => const ProductDetails(),
+      ),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -92,7 +94,9 @@ class TProductCArdVertical extends StatelessWidget {
                   SizedBox(
                     height: TSizes.spaceBtwItems / 2,
                   ),
-                  TBrandTitleWithVerifiedIcon(title: 'Nike',),
+                  TBrandTitleWithVerifiedIcon(
+                    title: 'Nike',
+                  ),
                 ],
               ),
             ),
@@ -111,19 +115,22 @@ class TProductCArdVertical extends StatelessWidget {
                 // Add to cart button
                 Container(
                   decoration: const BoxDecoration(
-                      color: TColors.dark,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(TSizes.cardRadiusMd),
-                        bottomRight: Radius.circular(TSizes.productImageRadius),
-                      )),
+                    color: TColors.dark,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(TSizes.cardRadiusMd),
+                      bottomRight: Radius.circular(TSizes.productImageRadius),
+                    ),
+                  ),
                   child: const SizedBox(
-                      height: TSizes.iconLg * 1.2,
-                      width: TSizes.iconLg * 1.2,
-                      child: Center(
-                          child: Icon(
+                    height: TSizes.iconLg * 1.2,
+                    width: TSizes.iconLg * 1.2,
+                    child: Center(
+                      child: Icon(
                         Iconsax.add,
                         color: TColors.white,
-                      ))),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -133,4 +140,3 @@ class TProductCArdVertical extends StatelessWidget {
     );
   }
 }
-

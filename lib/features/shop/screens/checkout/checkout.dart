@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/route_manager.dart';
 import 'package:prashant_e_commerce_project/common/widgets/appbar/appbar.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/TRoundedContainer.dart';
 import 'package:prashant_e_commerce_project/common/widgets/products/cart/coupon_widget.dart';
+import 'package:prashant_e_commerce_project/common/widgets/success_screen/successScreen.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/cart/widgets/cart_items.dart';
+import 'package:prashant_e_commerce_project/features/shop/screens/checkout/widgets/billing_address_section.dart';
+import 'package:prashant_e_commerce_project/features/shop/screens/checkout/widgets/billing_amount_Section.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/checkout/widgets/billing_payment_section.dart';
+import 'package:prashant_e_commerce_project/navigation.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
+import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
 import '../../../../utils/constants/sizes.dart';
@@ -50,11 +57,13 @@ class CheckoutScreen extends StatelessWidget {
                 child: const Column(
                   children: [
                     //pricing
-                    TBillingPaymentSection(),
+                    TBillingAmountSection(),
                     SizedBox(
                       height: TSizes.spaceBtwItems,
                     ),
+
                     //Divider
+
                     Divider(),
                     SizedBox(
                       height: TSizes.spaceBtwItems,
@@ -62,12 +71,33 @@ class CheckoutScreen extends StatelessWidget {
 
                     //payment methods
 
+                    SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+                    TBillingPaymentSection(),
+
                     //address
+                    SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+                    TBillingAdressSection(),
                   ],
                 ),
               ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
+        child: ElevatedButton(
+          onPressed: () => Get.to(() => SuccessScreen(
+                givenimage: TImages.successlogo,
+                title: 'Payment Successfull',
+                subtitle: 'Your item will be shipped soon... ',
+                onpressedbutton: () => Get.offAll(() => const NavigationMenu(),),
+              )),
+          child: const Text('Procced to pay -   ₹ 2500'),
         ),
       ),
     );

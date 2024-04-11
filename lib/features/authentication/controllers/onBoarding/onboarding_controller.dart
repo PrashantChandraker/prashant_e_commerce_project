@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'package:prashant_e_commerce_project/features/authentication/screens/login/login.dart';
 
@@ -28,7 +30,17 @@ void dotNavigationClick(index) {
 void nextPage() {
   if(currentPageIndex.value ==2)
   {
-    Get.to(const LoginScreen());
+
+    final storage = GetStorage();
+
+    if(kDebugMode){
+  print('-------------storage  next button--------');
+  print(storage.read('IsFirstTime'));
+}
+
+
+    storage.write('IsFirstTime', false);
+    Get.offAll(const LoginScreen());
   }
   else{
     int page = currentPageIndex.value +1;

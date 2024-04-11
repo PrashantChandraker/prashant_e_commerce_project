@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:prashant_e_commerce_project/common/widgets/appbar/appbar.dart';
 import 'package:prashant_e_commerce_project/common/widgets/appbar/tab_bar.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:prashant_e_commerce_project/common/widgets/layouts/grid_layout.dart';
 import 'package:prashant_e_commerce_project/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/section_heading.dart';
+import 'package:prashant_e_commerce_project/features/shop/screens/brands/all_brands.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/store/widgets/category_tab.dart.dart';
-import 'package:prashant_e_commerce_project/features/shop/screens/store/widgets/t_brand_card.dart';
+import 'package:prashant_e_commerce_project/common/widgets/brands/t_brand_card.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/constants/text_strings.dart';
@@ -59,7 +61,7 @@ class StoreScreen extends StatelessWidget {
 
                         TSectionHeading(
                           title: 'Features Brands',
-                          onpressed: () {},
+                          onpressed: () => Get.to(()=>const AllBrandScreen()),
                         ),
                         const SizedBox(
                           height: TSizes.spaceBtwItems / 1.5,
