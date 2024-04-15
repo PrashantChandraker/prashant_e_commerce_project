@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:prashant_e_commerce_project/common/widgets/appbar/appbar.dart';
 import 'package:prashant_e_commerce_project/common/widgets/images/t_rounded_images.dart';
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_card_horizontal.dart';

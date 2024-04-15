@@ -16,7 +16,7 @@ class TBillingAmountSection extends StatelessWidget {
               Text(' ₹ 2500', style: Theme.of(context).textTheme.bodyMedium, )
             ],
           ),
-          SizedBox(height: TSizes.spaceBtwItems/2,),
+          const SizedBox(height: TSizes.spaceBtwItems/2,),
 
           //shipping fees
          Row(
@@ -26,7 +26,7 @@ class TBillingAmountSection extends StatelessWidget {
               Text(' ₹ 25', style: Theme.of(context).textTheme.labelLarge, )
             ],
           ),
-            SizedBox(height: TSizes.spaceBtwItems/2,),
+            const SizedBox(height: TSizes.spaceBtwItems/2,),
 
           //Tax fees
          Row(
@@ -36,7 +36,7 @@ class TBillingAmountSection extends StatelessWidget {
               Text(' ₹ 5', style: Theme.of(context).textTheme.labelLarge, )
             ],
           ),
-          SizedBox(height: TSizes.spaceBtwItems/2,),
+          const SizedBox(height: TSizes.spaceBtwItems/2,),
 
           //Order Total 
          Row(

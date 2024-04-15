@@ -1,3 +1,6 @@
+
+import 'package:prashant_e_commerce_project/utils/logging/logger.dart';
+
 class TFirebaseException implements Exception {
   final String code;
 
@@ -5,6 +8,8 @@ class TFirebaseException implements Exception {
   TFirebaseException(this.code);
 
   String get message {
+
+    TLoggerHelper.error('Code: $code');
     switch (code) {
       case 'unknown':
         return 'An unknown Firebase error occured. please try again.';
@@ -15,25 +20,25 @@ class TFirebaseException implements Exception {
       case 'custom-token-mismatch':
         return 'the custom token corresponds to  diffirent audience';
 
-      case 'User Disabled':
+      case 'User-Disabled':
         return 'The user account is disabled';
 
-      case 'user not found':
+      case 'user-not-found':
         return 'no user found for the gmail or UID';
 
-      case 'invalid email':
+      case 'invalid-email':
         return 'the email adrress provided is invalid. please enter a valid email';
 
-      case 'email already in use':
+      case 'email-already-in-use':
         return 'the email adress is already is registered. please use a diffirent email.';
 
-      case 'Wrong password':
+      case 'Wrong-password':
         return 'InCorrect password. please check your password and try again.';
 
-      case 'Weak password':
+      case 'Weak-password':
         return 'The weak is too weak. please choose a Stronger password';
 
-      case 'Provider already linked':
+      case 'Provider-already linked':
         return 'The account is already linked with another provider';
 
       case 'operation-not-allowed':

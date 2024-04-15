@@ -42,12 +42,12 @@ class TCouponCode extends StatelessWidget {
           //button
           SizedBox(
             width: 90,
-            child: ElevatedButton(onPressed: () {}, child: Text('Apply'),
+            child: ElevatedButton(onPressed: () {},
             style: ElevatedButton.styleFrom(
               foregroundColor: dark? TColors.white.withOpacity(0.5) :  TColors.black.withOpacity(0.5),
               backgroundColor:   TColors.grey.withOpacity(0.5),
               side: BorderSide(color: TColors.black.withOpacity(0.5),),
-            ),
+            ), child: const Text('Apply'),
             
             ),),
         ],

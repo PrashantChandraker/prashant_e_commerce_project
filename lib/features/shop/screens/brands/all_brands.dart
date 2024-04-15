@@ -3,7 +3,6 @@ import 'package:get/route_manager.dart';
 import 'package:prashant_e_commerce_project/common/widgets/appbar/appbar.dart';
 import 'package:prashant_e_commerce_project/common/widgets/brands/t_brand_card.dart';
 import 'package:prashant_e_commerce_project/common/widgets/layouts/grid_layout.dart';
-import 'package:prashant_e_commerce_project/common/widgets/products/sortable/sortable_products.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/section_heading.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/brands/brand_products.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
@@ -14,8 +13,8 @@ class AllBrandScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar:  TAppBar(
-        giventitle: const Text('Brand',),
+      appBar:  const TAppBar(
+        giventitle: Text('Brand',),
         showbackarrow: true,
       ),
       body: SingleChildScrollView(

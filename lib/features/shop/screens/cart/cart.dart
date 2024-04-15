@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
 import 'package:prashant_e_commerce_project/common/widgets/appbar/appbar.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/cart/widgets/cart_items.dart';
@@ -22,7 +21,7 @@ class CartScreen extends StatelessWidget {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: ElevatedButton(
-              onPressed: () => Get.to(() => CheckoutScreen()), child: const Text('Checkout  ₹ 2500'),),
+              onPressed: () => Get.to(() => const CheckoutScreen()), child: const Text('Checkout  ₹ 2500'),),
         ),
         body: const Padding(
           padding: EdgeInsets.all(TSizes.defaultSpace),

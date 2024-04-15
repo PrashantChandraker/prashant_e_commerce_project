@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:prashant_e_commerce_project/common/styles/shadow_styles.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/TRoundedContainer.dart';
@@ -96,7 +95,7 @@ class ProductCardHorizontal extends StatelessWidget {
                       TBrandTitleWithVerifiedIcon(title: 'Nike'),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

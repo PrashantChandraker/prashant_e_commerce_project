@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:prashant_e_commerce_project/common/widgets/login_signup/form_divider.dart';
 import 'package:prashant_e_commerce_project/common/widgets/login_signup/social_buttons.dart';
 import 'package:prashant_e_commerce_project/features/authentication/controllers/signup/signup_controller.dart';
-import 'package:prashant_e_commerce_project/features/authentication/screens/signup/verify_email.dart';
 import 'package:prashant_e_commerce_project/features/authentication/screens/signup/widgets/terms_and_condition_checkbox.dart';
 
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:prashant_e_commerce_project/common/widgets/appbar/appbar.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/TRoundedContainer.dart';
@@ -18,7 +16,7 @@ import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class CheckoutScreen extends StatelessWidget {
-  CheckoutScreen({super.key});
+  const CheckoutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

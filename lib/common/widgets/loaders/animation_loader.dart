@@ -27,13 +27,13 @@ class TAnimationLoaderWidget extends StatelessWidget {
         children: [
           Lottie.asset(animation,
               width: MediaQuery.of(context).size.width * 0.8),
-          SizedBox(height: TSizes.defaultSpace),
+          const SizedBox(height: TSizes.defaultSpace),
           Text(
             text,
             style: Theme.of(context).textTheme.bodyMedium,
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: TSizes.defaultSpace),
+          const SizedBox(height: TSizes.defaultSpace),
           showAction
               ? SizedBox(
                   width: 250,
@@ -50,7 +50,7 @@ class TAnimationLoaderWidget extends StatelessWidget {
                     ),
                   ),
                 )
-              : SizedBox()
+              : const SizedBox()
         ],
       ),
     );

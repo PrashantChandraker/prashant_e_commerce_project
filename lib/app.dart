@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:prashant_e_commerce_project/bindings/genral_bindings.dart';
-import 'package:prashant_e_commerce_project/features/authentication/screens/onBoarding/onboarding.dart';
 import 'package:prashant_e_commerce_project/utils/theme/theme.dart';
 
 import 'utils/constants/colors.dart';
