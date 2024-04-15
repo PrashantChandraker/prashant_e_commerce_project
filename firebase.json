@@ -1,1 +1,25 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"prashantecommerceapp","appId":"1:628858184888:android:0f25c5a0b818b5ae6c004d","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"prashantecommerceapp","configurations":{"android":"1:628858184888:android:0f25c5a0b818b5ae6c004d","ios":"1:628858184888:ios:44f909e1673892086c004d","macos":"1:628858184888:ios:44f909e1673892086c004d","web":"1:628858184888:web:a4caffaab8b3a18c6c004d","windows":"1:628858184888:web:6e32f1e97f8d43156c004d"}}}}}}
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "prashantecommerceapp",
+                    "appId": "1:628858184888:android:0f25c5a0b818b5ae6c004d",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "prashantecommerceapp",
+                    "configurations": {
+                        "android": "1:628858184888:android:0f25c5a0b818b5ae6c004d",
+                        "ios": "1:628858184888:ios:44f909e1673892086c004d",
+                        "macos": "1:628858184888:ios:44f909e1673892086c004d",
+                        "web": "1:628858184888:web:a4caffaab8b3a18c6c004d",
+                        "windows": "1:628858184888:web:6e32f1e97f8d43156c004d"
+                    }
+                }
+            }
+        }
+    }
+}

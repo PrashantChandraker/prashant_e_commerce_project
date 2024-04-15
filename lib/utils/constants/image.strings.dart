@@ -59,4 +59,9 @@ class TImages {
   static String paypal= "assets/icons/payment_methods/paypal.png";
 
 
+  //lottie animations
+ static String loading = "assets/images/animations/lottie_animation/loading.json";
+
+
+
 }
