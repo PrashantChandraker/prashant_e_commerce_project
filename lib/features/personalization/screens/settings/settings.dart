@@ -6,11 +6,13 @@ import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/contain
 import 'package:prashant_e_commerce_project/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:prashant_e_commerce_project/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/section_heading.dart';
+import 'package:prashant_e_commerce_project/features/authentication/screens/login/login.dart';
 import 'package:prashant_e_commerce_project/features/personalization/screens/address/address.dart';
-import 'package:prashant_e_commerce_project/features/personalization/screens/profile/widgets/profile.dart';
+import 'package:prashant_e_commerce_project/features/personalization/screens/profile/profile.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 
+import '../../../../upload_image_to_firebase.dart';
 import '../../../shop/screens/order/order_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -103,10 +105,12 @@ class SettingsScreen extends StatelessWidget {
                   const TSectionHeading(
                       title: 'App settings', showactionbutton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  const TSettingsMenuTile(
+                   TSettingsMenuTile(
                       icon: Iconsax.document_upload,
                       title: 'load data',
-                      subtitle: 'Upload data to ur cloud firebase'),
+                      subtitle: 'Upload data to ur cloud firebase',
+                      ontap: () => Get.to(()=> UploadImageToFirebase(),),
+                      ),
                   TSettingsMenuTile(
                     icon: Iconsax.location,
                     title: 'Geolocation',
@@ -129,7 +133,7 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () {}, child: const Text('Logout')),
+                        onPressed: ()=>Get.offAll(()=>const LoginScreen()), child: const Text('Logout')),
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections * 2.5,

@@ -13,6 +13,7 @@ class TOrderScreen extends StatelessWidget {
       appBar: TAppBar(
         giventitle: Text('My Orders',style: Theme.of(context).textTheme.headlineSmall, ),
         showbackarrow: true,
+        // onpressed:  () => Get.to(()=>SettingsScreen()),
       ),
       body: const Padding(padding: EdgeInsets.all(TSizes.defaultSpace),
 

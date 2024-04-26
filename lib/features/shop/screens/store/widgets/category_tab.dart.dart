@@ -3,12 +3,15 @@ import 'package:prashant_e_commerce_project/common/widgets/brands/brands_showcas
 import 'package:prashant_e_commerce_project/common/widgets/layouts/grid_layout.dart';
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_card_vertical.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/section_heading.dart';
+import 'package:prashant_e_commerce_project/features/shop/models/category_model.dart';
 import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/constants/text_strings.dart';
 
 class TCategoryTab extends StatelessWidget {
-  const TCategoryTab({super.key});
+  const TCategoryTab({super.key, required this.category});
+
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {

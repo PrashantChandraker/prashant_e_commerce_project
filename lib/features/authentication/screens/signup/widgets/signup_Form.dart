@@ -156,7 +156,7 @@ class TSignUpForm extends StatelessWidget {
 
           // Social buttons
 
-          const SocialButtons(),
+           SocialButtons(),
         ],
       ),
     );

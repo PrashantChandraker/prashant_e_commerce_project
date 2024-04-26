@@ -33,6 +33,7 @@ class TRoundedImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onpressed,
       child: Center(
         child: Container(
           width: width,

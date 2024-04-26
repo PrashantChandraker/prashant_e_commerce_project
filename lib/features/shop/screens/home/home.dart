@@ -78,12 +78,12 @@ class HomeScreen extends StatelessWidget {
                   //Promo slider
 
                   TPromoSlider(
-                    promobanners: [
-                      TImages.nikelogo,
-                      TImages.nikelogo2,
-                      TImages.nikelogo3,
-                      TImages.tshirtBanner
-                    ],
+                    // promobanners: [
+                    //   TImages.nikelogo,
+                    //   TImages.nikelogo2,
+                    //   TImages.nikelogo3,
+                    //   TImages.tshirtBanner
+                    // ],
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,

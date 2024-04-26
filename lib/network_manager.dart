@@ -7,25 +7,26 @@ import 'package:prashant_e_commerce_project/utils/popups/loaders.dart';
 
 //Manages the network connectivity status and provides methods to check handle connectivity changes.
 class NetworkManager extends GetxController {
-   static NetworkManager get instance => Get.find();
+  static NetworkManager get instance => Get.find();
   final Connectivity _connectivity = Connectivity();
-  late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription; //list
+  late StreamSubscription<List<ConnectivityResult>>
+      _connectivitySubscription; //list
   final Rx<ConnectivityResult> _connectionStatus = ConnectivityResult.none.obs;
 
- @override
-void onInit() {
-  super.onInit();
-  _connectivitySubscription =
-      _connectivity.onConnectivityChanged.listen((List<ConnectivityResult> event) {
-    // Call _updateConnectionStatus with the first item in the list
-    _updateConnectionStatus(event.first);
-  });
-}
+  @override
+  void onInit() {
+    super.onInit();
+    _connectivitySubscription = _connectivity.onConnectivityChanged
+        .listen((List<ConnectivityResult> event) {
+      // Call _updateConnectionStatus with the first item in the list
+      _updateConnectionStatus(event.first);
+    });
+  }
 
   Future<void> _updateConnectionStatus(ConnectivityResult result) async {
     _connectionStatus.value = result;
     if (_connectionStatus.value == ConnectivityResult.none) {
-      TLoaders.warningSnackBar(title: 'No Internet Connection');
+      TLoaders.customToast(message: 'No Internet Connection');
     }
   }
 

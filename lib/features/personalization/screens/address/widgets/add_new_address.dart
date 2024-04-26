@@ -12,6 +12,7 @@ class AddNewAddressScreen extends StatelessWidget {
     return Scaffold(
       appBar: TAppBar(
         showbackarrow: true,
+        // onpressed:  () => Get.back(),
         giventitle: Text(
           'Add your new Address',
           style: Theme.of(context).textTheme.titleMedium,

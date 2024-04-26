@@ -7,6 +7,7 @@ import 'package:prashant_e_commerce_project/features/personalization/screens/add
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 
+
 class UserAddressScreen extends StatelessWidget {
   const UserAddressScreen({super.key});
 
@@ -25,6 +26,7 @@ class UserAddressScreen extends StatelessWidget {
       ),
       appBar: TAppBar(
         showbackarrow: true,
+        // onpressed:  () => Get.to(()=>SettingsScreen()),
         giventitle: Text(
           'Addresses',
           style: Theme.of(context).textTheme.headlineSmall,

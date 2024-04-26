@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:prashant_e_commerce_project/features/authentication/controllers/forgot_password/forget_password_controller.dart';
 import 'package:prashant_e_commerce_project/features/authentication/screens/login/login.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
@@ -9,8 +10,8 @@ import 'package:prashant_e_commerce_project/utils/constants/text_strings.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
 class RestPasswordScreen extends StatelessWidget {
-  const RestPasswordScreen({super.key});
-
+  const RestPasswordScreen({super.key, required this.email});
+  final String email;
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkmode(context);
@@ -19,13 +20,13 @@ class RestPasswordScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.back(),
-              icon: const Icon(CupertinoIcons.clear),
-              color: dark ? TColors.white : TColors.dark,
-              ),
+            onPressed: () => Get.back(),
+            icon: const Icon(CupertinoIcons.clear),
+            color: dark ? TColors.white : TColors.dark,
+          ),
         ],
       ),
-      body:  SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
@@ -39,7 +40,17 @@ class RestPasswordScreen extends StatelessWidget {
               const SizedBox(
                 height: TSizes.spaceBtwSections,
               ),
-              //Title and SUbtitle
+
+              // Email, Title and SUbtitle
+
+              Text(
+                email,
+                style: Theme.of(context).textTheme.bodyMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: TSizes.spaceBtwItems,
+              ),
               Text(
                 TTexts.changeYourPasswordTitle,
                 style: Theme.of(context).textTheme.headlineMedium,
@@ -66,17 +77,19 @@ class RestPasswordScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => Get.to(()=>const LoginScreen()),
+                    onPressed: () => Get.offAll(() => const LoginScreen()),
                     child: const Text(TTexts.done)),
               ),
-               const SizedBox(
+              const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
 
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                    onPressed: () {}, child: const Text(TTexts.resendEmail)),
+                    onPressed: () => ForgetPasswordController.instance
+                        .resendPasswordResetEmail(email),
+                    child: const Text(TTexts.resendEmail)),
               ),
             ],
           ),

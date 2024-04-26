@@ -1,14 +1,16 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:prashant_e_commerce_project/features/authentication/controllers/login/login_controller.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 
 class SocialButtons extends StatelessWidget {
-  const SocialButtons({
+   SocialButtons({
     super.key,
   });
-
+final controller = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,7 +22,7 @@ class SocialButtons extends StatelessWidget {
             borderRadius: BorderRadius.circular(100),
           ),
           child: IconButton(
-              onPressed: () {},
+              onPressed: () => controller.googleSignin(),
               icon: Image(
                 height: TSizes.xl,
                 width: TSizes.xl,

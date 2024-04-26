@@ -63,5 +63,17 @@ class TImages {
  static String loading = "assets/images/animations/lottie_animation/loading.json";
 
 
+ // category icons
+ 
+  static String sporticon= "assets/icons/category/sport_icon.png";
+  static String clothicon= "assets/icons/category/clothicon.png";
+  static String cosmeticsicon= "assets/icons/category/cosmetics.png";
+  static String electronicsicon= "assets/icons/category/electronics.png";
+  static String furnitureicon= "assets/icons/category/furniture.png";
+
+
+
+
+
 
 }
