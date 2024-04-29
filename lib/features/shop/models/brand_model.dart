@@ -11,7 +11,7 @@ class BrandModel {
     required this.image,
     required this.name,
     this.isFeatured,
-    required int productsCount,
+    required this.productsCount,
   });
 
   /// Empty Helper Function

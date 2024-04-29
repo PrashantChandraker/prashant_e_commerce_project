@@ -4,7 +4,7 @@ class TRoutes {
 
 static const home = '/';
 static const store = '/store';
-static const favourites = '/FavrouiteScreen';
+static const prashant = '/prashant';
 static const settings = '/settings';
 static const subCategories = '/sub-categories';
 static const search = '/search';

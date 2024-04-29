@@ -13,3 +13,5 @@ enum PayementMethods {
   patym,
   applepay
 }
+
+enum ProductType{ single, variable}

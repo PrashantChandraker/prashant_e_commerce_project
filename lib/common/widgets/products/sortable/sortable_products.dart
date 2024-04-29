@@ -5,6 +5,8 @@ import 'package:prashant_e_commerce_project/common/widgets/layouts/grid_layout.d
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_card_vertical.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 
+import '../../../../features/shop/models/product_model.dart';
+
 class TSortableProducts extends StatelessWidget {
   const TSortableProducts({
     super.key,
@@ -35,7 +37,7 @@ class TSortableProducts extends StatelessWidget {
     
         //products
     
-        TGridLayout(itemcount: 8, itemBuilder: (_, index)=> const TProductCArdVertical())
+        TGridLayout(itemcount: 8, itemBuilder: (_, index)=>  TProductCArdVertical(product: ProductModel.empty(),))
       ],
     );
   }

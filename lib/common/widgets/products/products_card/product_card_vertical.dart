@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:prashant_e_commerce_project/common/styles/shadow_styles.dart';
@@ -8,22 +9,34 @@ import 'package:prashant_e_commerce_project/common/widgets/images/t_rounded_imag
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_price_text.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/T_brand_title_text_with_verifiedIcon.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/product_title.dart';
+import 'package:prashant_e_commerce_project/features/shop/controllers/product_controller.dart';
+import 'package:prashant_e_commerce_project/features/shop/models/product_model.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/product_details/product_details.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
+import '../../../../utils/constants/enums.dart';
+
 class TProductCArdVertical extends StatelessWidget {
-  const TProductCArdVertical({super.key});
+  const TProductCArdVertical({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instance;
+    final salepercentage =
+        controller.calculateSalePercentage(product.price, product.salePrice);
+
     final dark = THelperFunctions.isDarkmode(context);
     //container with side paddings, colour , edge, shadow and radius
     return GestureDetector(
       onTap: () => Get.to(
-        () => const ProductDetails(),
+        () => ProductDetails(
+          product: product,
+        ),
       ),
       child: Container(
         width: 180,
@@ -38,14 +51,18 @@ class TProductCArdVertical extends StatelessWidget {
             //thumbnail, wishlist button, discount button tag
             TRoundedContainer(
               height: 180,
+              width: 180,
               padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: dark ? TColors.dark : TColors.light,
               child: Stack(
                 children: [
                   //thumbnail image
-                  TRoundedImage(
-                    imageURL: TImages.mobilelogo,
-                    applyImageRadius: true,
+                  Center(
+                    child: TRoundedImage(
+                      imageURL: product.thumbnail,
+                      applyImageRadius: true,
+                      isNetworkImage: true,
+                    ),
                   ),
                   // sale tag
                   Positioned(
@@ -56,7 +73,7 @@ class TProductCArdVertical extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: TSizes.sm, vertical: TSizes.xs),
                       child: Text(
-                        '25%',
+                        '$salepercentage%',
                         style: Theme.of(context)
                             .textTheme
                             .labelLarge!
@@ -82,20 +99,20 @@ class TProductCArdVertical extends StatelessWidget {
 
             // details
 
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(left: TSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TProductTitleText(
-                    title: 'Green Nike Air shoes',
+                    title: product.title,
                     smallsize: true,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: TSizes.spaceBtwItems / 2,
                   ),
                   TBrandTitleWithVerifiedIcon(
-                    title: 'Nike',
+                    title: product.brand!.name,
                   ),
                 ],
               ),
@@ -105,10 +122,27 @@ class TProductCArdVertical extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //price
-                const Padding(
-                  padding: EdgeInsets.only(left: TSizes.sm),
-                  child: TProductPriceText(
-                    price: '3500',
+                Flexible(
+                  child: Column(
+                    children: [
+                      if (product.productType ==
+                              ProductType.single.toString() &&
+                          product.salePrice > 0)
+                        Padding(
+                          padding: const EdgeInsets.only(left: TSizes.sm),
+                          child: Text(product.price.toString(),
+                          style:Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
+                          )
+                        ),
+
+                      // price , show sale price as main price if sale exist
+                      Padding(
+                        padding: EdgeInsets.only(left: TSizes.sm),
+                        child: TProductPriceText(
+                          price: controller.getProductPrice(product),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
 

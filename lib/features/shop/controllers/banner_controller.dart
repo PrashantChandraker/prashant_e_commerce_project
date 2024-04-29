@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_state.dart';
 import 'package:get/get.dart';
 import 'package:prashant_e_commerce_project/data/repositories/banners/banner_repository.dart';
 

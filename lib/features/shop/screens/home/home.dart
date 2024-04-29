@@ -1,25 +1,29 @@
+
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:prashant_e_commerce_project/common/widgets/layouts/grid_layout.dart';
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_card_vertical.dart';
+import 'package:prashant_e_commerce_project/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/section_heading.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/all_Products/all_products.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/home/widgets/home_app_bar.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/home/widgets/home_promo_slider.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
-import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
+
+import '../../controllers/product_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -77,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   //Promo slider
 
-                  TPromoSlider(
+                  const TPromoSlider(
                     // promobanners: [
                     //   TImages.nikelogo,
                     //   TImages.nikelogo2,
@@ -98,9 +102,22 @@ class HomeScreen extends StatelessWidget {
                     height: TSizes.spaceBtwSections,
                   ),
                   //popular products
-                  TGridLayout(
-                    itemcount: 6,
-                    itemBuilder: (index, _) => const TProductCArdVertical(),
+                  Obx(
+                    (){
+                      if(controller.isLoading.value) return const TVerticalProductShimmer();
+                      
+                      if(controller.featuredProducts.isEmpty){
+                        return Center(
+                          child: Text('No Data Found', style: Theme.of(context).textTheme.bodyMedium,),
+                        );
+                      }
+                      return TGridLayout(
+                      itemcount: controller.featuredProducts.length,
+                      itemBuilder: (_,index) =>  TProductCArdVertical(product:  controller.featuredProducts[index]),
+                    );
+                    
+                    }
+                   
                   ),
                 ],
               ),
