@@ -5,7 +5,7 @@ import 'package:prashant_e_commerce_project/common/widgets/appbar/appbar.dart';
 import 'package:prashant_e_commerce_project/common/widgets/icons/t_circular_icons.dart';
 import 'package:prashant_e_commerce_project/common/widgets/layouts/grid_layout.dart';
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_card_vertical.dart';
-import 'package:prashant_e_commerce_project/features/shop/controllers/product_controller.dart';
+import 'package:prashant_e_commerce_project/features/shop/controllers/product/product_controller.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/home/home.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';

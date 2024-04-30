@@ -25,7 +25,10 @@ class ProductDetails extends StatelessWidget {
         child: Column(
           children: [
             //product image slider
-            const TProductImageSlider(),
+             TProductImageSlider(product: product,),
+
+
+            
             //product details
             Padding(
               padding: const EdgeInsets.only(
@@ -41,7 +44,7 @@ class ProductDetails extends StatelessWidget {
                   ),
 
                   /// price title stock and brand
-                  const TProductMetaDeta(),
+                   TProductMetaDeta(product: product,),
 
                   /// attributes
                   const ProductAttributes(),

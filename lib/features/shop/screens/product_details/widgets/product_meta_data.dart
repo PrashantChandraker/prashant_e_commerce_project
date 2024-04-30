@@ -4,17 +4,24 @@ import 'package:prashant_e_commerce_project/common/widgets/images/t_circular_ima
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_price_text.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/T_brand_title_text_with_verifiedIcon.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/product_title.dart';
+import 'package:prashant_e_commerce_project/features/shop/controllers/product/product_controller.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/enums.dart';
 import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
-class TProductMetaDeta extends StatelessWidget {
-  const TProductMetaDeta({super.key});
+import '../../../models/product_model.dart';
 
+class TProductMetaDeta extends StatelessWidget {
+  const TProductMetaDeta({super.key, required this.product});
+
+
+ final  ProductModel product;
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instance;
+    final salepercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = THelperFunctions.isDarkmode(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +36,7 @@ class TProductMetaDeta extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   horizontal: TSizes.sm, vertical: TSizes.xs),
               child: Text(
-                '25%',
+                '$salepercentage%',
                 style: Theme.of(context)
                     .textTheme
                     .labelLarge!
@@ -40,8 +47,10 @@ class TProductMetaDeta extends StatelessWidget {
               width: TSizes.spaceBtwItems,
             ),
             //price
+
+            if(product.productType == ProductType.single.toString() && product.salePrice > 0)
             Text(
-              '₹ 950',
+              '₹ ${product.price}',
               style: Theme.of(context)
                   .textTheme
                   .titleSmall!
@@ -50,8 +59,8 @@ class TProductMetaDeta extends StatelessWidget {
             const SizedBox(
               width: TSizes.spaceBtwItems,
             ),
-            const TProductPriceText(
-              price: '700',
+             TProductPriceText(
+              price: controller.getProductPrice(product),
               islarge: true,
             ),
           ],

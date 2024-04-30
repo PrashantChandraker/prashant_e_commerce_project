@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/route_manager.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:prashant_e_commerce_project/common/styles/shadow_styles.dart';
@@ -9,11 +8,10 @@ import 'package:prashant_e_commerce_project/common/widgets/images/t_rounded_imag
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_price_text.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/T_brand_title_text_with_verifiedIcon.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/product_title.dart';
-import 'package:prashant_e_commerce_project/features/shop/controllers/product_controller.dart';
+import 'package:prashant_e_commerce_project/features/shop/controllers/product/product_controller.dart';
 import 'package:prashant_e_commerce_project/features/shop/models/product_model.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/product_details/product_details.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
-import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
@@ -100,7 +98,7 @@ class TProductCArdVertical extends StatelessWidget {
             // details
 
             Padding(
-              padding: EdgeInsets.only(left: TSizes.sm),
+              padding: const EdgeInsets.only(left: TSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -137,7 +135,7 @@ class TProductCArdVertical extends StatelessWidget {
 
                       // price , show sale price as main price if sale exist
                       Padding(
-                        padding: EdgeInsets.only(left: TSizes.sm),
+                        padding: const EdgeInsets.only(left: TSizes.sm),
                         child: TProductPriceText(
                           price: controller.getProductPrice(product),
                         ),

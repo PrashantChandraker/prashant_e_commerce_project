@@ -107,8 +107,8 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwItems),
                    TSettingsMenuTile(
                       icon: Iconsax.document_upload,
-                      title: 'load data',
-                      subtitle: 'Upload data to ur cloud firebase',
+                      title: 'Admin pannel',
+                      subtitle: 'Upload data to your cloud firebase',
                       ontap: () => Get.to(()=> UploadImageToFirebase(),),
                       ),
                   TSettingsMenuTile(

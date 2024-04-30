@@ -1,4 +1,4 @@
-enum TextSizes { small, medium, large }
+enum TextSizes { small, medium, large, defaultSpace }
 
 enum OrderStatus { processing, shipped, delivered }
 

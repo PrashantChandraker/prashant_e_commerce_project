@@ -77,7 +77,7 @@ class ProductRepository extends GetxController {
         }
 
         //upload variation images
-        if (product.productType == ProductType.variable.toString()) {
+        if (product.productType == ProductType.single.toString()) {
           for (var variation in product.productVariations!) {
             //Get image data link from local assets
             final assetImage =
