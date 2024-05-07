@@ -50,6 +50,8 @@ class TPromoSlider extends StatelessWidget {
 
               options: CarouselOptions(
                   viewportFraction: 0.96,
+                  autoPlay: true,
+                  // autoPlayInterval: Duration(seconds: 4),
                   onPageChanged: (index, _) =>
                       myslidercontroller.UpdatePageIndicator(index)),
               

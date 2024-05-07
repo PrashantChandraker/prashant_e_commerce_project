@@ -1,7 +1,5 @@
 
 import 'package:get/get.dart';
-import 'package:prashant_e_commerce_project/utils/logging/logger.dart';
-
 import '../../../../data/repositories/product/product_repository.dart';
 import '../../../../utils/constants/enums.dart';
 import '../../../../utils/popups/loaders.dart';
@@ -25,7 +23,6 @@ class ProductController extends GetxController {
       isLoading.value = true;
 
       //fetch Products
-      TLoggerHelper.error('message');
       final products = await productRepository.getFeaturedProducts();
 
       //Assign Products
@@ -34,6 +31,23 @@ class ProductController extends GetxController {
       TLoaders.errorSnackBar(title: 'Oh SNAP', message: e.toString());
     } finally {
       isLoading.value = false;
+    }
+  }
+
+
+
+
+  
+  Future<List<ProductModel>> fetchAllFeaturedProducts() async {
+    try {
+
+      //fetch Products
+      final products = await productRepository.getFeaturedProducts();
+return products;
+     
+    } catch (e) {
+      TLoaders.errorSnackBar(title: 'Oh SNAP', message: e.toString());
+      return [];
     }
   }
 
@@ -75,7 +89,7 @@ class ProductController extends GetxController {
         return largestPrice.toString();
       } else {
         // Otherwise, return a price range
-        return '$smallestPrice - \$$largestPrice';
+        return '$smallestPrice - \₹$largestPrice';
       }
     }
   }

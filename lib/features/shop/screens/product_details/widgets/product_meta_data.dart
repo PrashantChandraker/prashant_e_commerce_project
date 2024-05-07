@@ -7,7 +7,6 @@ import 'package:prashant_e_commerce_project/common/widgets/texts/product_title.d
 import 'package:prashant_e_commerce_project/features/shop/controllers/product/product_controller.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/enums.dart';
-import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
@@ -56,8 +55,10 @@ class TProductMetaDeta extends StatelessWidget {
                   .titleSmall!
                   .apply(decoration: TextDecoration.lineThrough),
             ),
+                        if(product.productType == ProductType.single.toString() && product.salePrice > 0)
+           
             const SizedBox(
-              width: TSizes.spaceBtwItems,
+              width: TSizes.sm,
             ),
              TProductPriceText(
               price: controller.getProductPrice(product),
@@ -70,7 +71,7 @@ class TProductMetaDeta extends StatelessWidget {
         ),
 
         //title
-        const TProductTitleText(title: 'Brown Nike Sports track pants'),
+         TProductTitleText(title: product.title),
         const SizedBox(
           height: TSizes.spaceBtwItems / 1.5,
         ),
@@ -84,7 +85,7 @@ class TProductMetaDeta extends StatelessWidget {
               width: TSizes.spaceBtwItems,
             ),
             Text(
-              'In stock',
+              controller.getProductStockStatus(product.stock),
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ],
@@ -98,12 +99,13 @@ class TProductMetaDeta extends StatelessWidget {
        Row(
          children: [
           TCircularImage(
+            isNetworkImage: true,
             width: 32,
             height: 32,
-             overlaycolor: dark? TColors.white : TColors.black,
-            image: TImages.nikesmalllogo),
+            // overlaycolor: dark? TColors.white : TColors.black,
+            image: product.brand != null  ? product.brand!.image : ''),
             const SizedBox(width: TSizes.spaceBtwItems/2,),
-           const TBrandTitleWithVerifiedIcon(title: 'Nike', givenbrandtextsize: TextSizes.medium,),
+            TBrandTitleWithVerifiedIcon(title: product.brand != null ? product.brand!.name: '', givenbrandtextsize: TextSizes.medium,),
          ],
        ),
        const SizedBox(height: TSizes.spaceBtwItems,)

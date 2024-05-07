@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:prashant_e_commerce_project/common/widgets/appbar/appbar.dart';
 import 'package:prashant_e_commerce_project/common/widgets/appbar/tab_bar.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/search_container.dart';
@@ -7,7 +7,9 @@ import 'package:prashant_e_commerce_project/common/widgets/layouts/grid_layout.d
 import 'package:prashant_e_commerce_project/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/section_heading.dart';
 import 'package:prashant_e_commerce_project/features/shop/controllers/category_controller.dart';
+import 'package:prashant_e_commerce_project/features/shop/controllers/product/brand_controller.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/brands/all_brands.dart';
+import 'package:prashant_e_commerce_project/features/shop/screens/brands/brand_products.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/store/widgets/category_tab.dart.dart';
 import 'package:prashant_e_commerce_project/common/widgets/brands/t_brand_card.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
@@ -15,12 +17,15 @@ import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/constants/text_strings.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
+import '../../../../common/widgets/shimmers/brands_shimmer.dart';
+
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
 
+    final brandController = Get.put(BrandController());
     final categories = CategoryController.instance.featuredCategories;
 
     return DefaultTabController(
@@ -65,19 +70,38 @@ class StoreScreen extends StatelessWidget {
 
                         TSectionHeading(
                           title: 'Features Brands',
-                          onpressed: () => Get.to(()=>const AllBrandScreen()),
+                          onpressed: () => Get.to(()=> const AllBrandsScreen()),
                         ),
                         const SizedBox(
                           height: TSizes.spaceBtwItems / 1.5,
                         ),
-                        TGridLayout(
-                          mainAxisExtent: 80,
-                          itemcount: 4,
-                          itemBuilder: (_, index) {
-                            return const TBrandcard(
-                              showBorder: true,
-                            );
-                          },
+
+                        // Brands Grid 
+                        Obx(
+                          () {
+
+                            if(brandController.isLoading.value) return const TBrandsShimmer();
+
+
+                            if(brandController.featuredBrands.isEmpty) {
+                              return Center(
+                                child: Text('No data Found!', 
+                                style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white),),
+                              );
+                            }
+                           return  TGridLayout(
+                            mainAxisExtent: 80,
+                            itemcount: brandController.featuredBrands.length,
+                            itemBuilder: (_, index) {
+                              final brand = brandController.featuredBrands[index];
+                              return  TBrandcard(
+                                showBorder: true,
+                                  brand: brand,
+                                  ontap: () => Get.to(() => BrandProducts(brand: brand,)),
+                              );
+                            },
+                          );
+                          }  
                         ),
                       ],
                     ),

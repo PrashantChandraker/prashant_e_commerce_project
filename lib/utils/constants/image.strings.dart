@@ -74,6 +74,44 @@ class TImages {
 
 
 
+// nike shoes
+static String nikeblack= "assets/images/products/shoes/nikebalck.jpg";
+static String nikeblue= "assets/images/products/shoes/nikeblue.jpeg";
+static String nikegreen= "assets/images/products/shoes/nikegreen.png";
+static String nikered= "assets/images/products/shoes/nikered.png";
+static String niketeal= "assets/images/products/shoes/nikeTeal.png";
+static String nikewhite= "assets/images/products/shoes/nikewhite.jpg";
+
+
+// brand logos
+static String  addidasLogo= "assets/logos/addidas_logo.png";
+static String  jordonLogo= "assets/logos/jordon_logo.png";
+static String  pumaLogo= "assets/logos/puma_logo.png";
+static String  nikeLogo= "assets/logos/nike_small_logo.png";
+
+
+
+//Jordon shoes
+static String  JordonRed= "assets/images/products/shoes/jordon_red_shoe.jpg";
+static String  JordonGrey= "assets/images/products/shoes/jordon_grey.jpg";
+static String  JordonBlack= "assets/images/products/shoes/jordon_shoe_black.png";
+static String  JordonWhite= "assets/images/products/shoes/jordon_white_shoe.jpg";
+
+
+//puma shoes
+static String  PumaBlue= "assets/images/products/shoes/puma_blue.png";
+static String  Pumagreen= "assets/images/products/shoes/puma_green.jpg";
+static String  Pumawhite= "assets/images/products/shoes/puma_shoe_white.png";
+static String  PumaBrown= "assets/images/products/shoes/pumaBrown.png";
+
+
+
+//Addidas shoes
+static String  addidasblack= "assets/images/products/shoes/addidas_black.jpg";
+static String  addidasblue= "assets/images/products/shoes/addidas_blue.jpg";
+static String  addidasgrey= "assets/images/products/shoes/addidas_grey.png";
+static String  addidasred= "assets/images/products/shoes/addidas_red.jpg";
+
 
 
 }

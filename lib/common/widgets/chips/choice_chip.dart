@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/circular_container.dart';
+import 'package:prashant_e_commerce_project/features/shop/controllers/product/variation_controller.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
@@ -13,6 +16,7 @@ class TChoiceChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VariationController());
     final dark = THelperFunctions.isDarkmode(context);
     final isColor = THelperFunctions.getColor(text) != null;
     return ChoiceChip(
@@ -23,9 +27,12 @@ class TChoiceChip extends StatelessWidget {
               style: TextStyle(color: dark ? TColors.white : TColors.black),
             ),
 
-      selected: selected,
+      selected:  selected,
+      
+      onSelected:   onSelected,
 
-      onSelected: onSelected,
+
+
       labelStyle: const TextStyle(color: true ? TColors.white : null),
       avatar: isColor
           ? TCircularContainer(

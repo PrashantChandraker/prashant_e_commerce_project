@@ -11,7 +11,9 @@ import 'package:prashant_e_commerce_project/features/personalization/screens/add
 import 'package:prashant_e_commerce_project/features/personalization/screens/profile/profile.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
+import 'package:prashant_e_commerce_project/utils/logging/logger.dart';
 
+import '../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../../upload_image_to_firebase.dart';
 import '../../../shop/screens/order/order_screen.dart';
 
@@ -40,8 +42,11 @@ class SettingsScreen extends StatelessWidget {
 
                   //User PRofile Card
 
-                   UserProfileTile(
-                  onPressed: () =>Get.to(() => const ProfileScreen(),), ),
+                  UserProfileTile(
+                    onPressed: () => Get.to(
+                      () => const ProfileScreen(),
+                    ),
+                  ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
@@ -49,7 +54,7 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             //body
-           Padding(
+            Padding(
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 //acount setting
@@ -63,7 +68,9 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.safe_home,
                     title: 'My Adresses',
                     subtitle: 'Set Shopping delivery adress',
-                    ontap:()=> Get.to(()=> const UserAddressScreen(),),
+                    ontap: () => Get.to(
+                      () => const UserAddressScreen(),
+                    ),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.shopping_cart,
@@ -75,7 +82,9 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.bag_tick,
                     title: 'My Orders',
                     subtitle: 'In Progress and completed Orders',
-                    ontap: () => Get.to(() => const TOrderScreen(),),
+                    ontap: () => Get.to(
+                      () => const TOrderScreen(),
+                    ),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.bank,
@@ -105,12 +114,14 @@ class SettingsScreen extends StatelessWidget {
                   const TSectionHeading(
                       title: 'App settings', showactionbutton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                   TSettingsMenuTile(
-                      icon: Iconsax.document_upload,
-                      title: 'Admin pannel',
-                      subtitle: 'Upload data to your cloud firebase',
-                      ontap: () => Get.to(()=> UploadImageToFirebase(),),
-                      ),
+                  TSettingsMenuTile(
+                    icon: Iconsax.document_upload,
+                    title: 'Admin pannel',
+                    subtitle: 'Upload data to your cloud firebase',
+                    ontap: () => Get.to(
+                      () => UploadImageToFirebase(),
+                    ),
+                  ),
                   TSettingsMenuTile(
                     icon: Iconsax.location,
                     title: 'Geolocation',
@@ -132,8 +143,14 @@ class SettingsScreen extends StatelessWidget {
                   //logout button
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(
-                        onPressed: ()=>Get.offAll(()=>const LoginScreen()), child: const Text('Logout')),
+                    child: ElevatedButton(
+                        onPressed: () {
+
+                            AuthenticationRepsitory.instance.logout();
+                        },
+                       
+                          
+                        child: const Text('Logout')),
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections * 2.5,

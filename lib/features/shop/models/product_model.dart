@@ -96,7 +96,7 @@ static ProductModel empty()=>ProductModel(
   }
   
   
-  
+  // map json oriented document snapshot from firebase to model
   factory ProductModel.fromQuerySnapshot(QueryDocumentSnapshot<Object?> document) {
   final data = document.data() as Map<String, dynamic>;
   return ProductModel(

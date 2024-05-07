@@ -92,6 +92,7 @@ flutter:
     - assets/logos/
     - assets/images/banners/
     - assets/images/products/
+    - assets/images/products/shoes/
     - assets/images/user/
     - assets/icons/category/
 

@@ -1,4 +1,4 @@
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -67,8 +67,8 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                          height: TSizes.spaceBtwSections,
-                        ),
+                    height: TSizes.spaceBtwSections,
+                  ),
                 ],
               ),
             ),
@@ -82,43 +82,49 @@ class HomeScreen extends StatelessWidget {
                   //Promo slider
 
                   const TPromoSlider(
-                    // promobanners: [
-                    //   TImages.nikelogo,
-                    //   TImages.nikelogo2,
-                    //   TImages.nikelogo3,
-                    //   TImages.tshirtBanner
-                    // ],
-                  ),
+                      // promobanners: [
+                      //   TImages.nikelogo,
+                      //   TImages.nikelogo2,
+                      //   TImages.nikelogo3,
+                      //   TImages.tshirtBanner
+                      // ],
+                      ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
-                   TSectionHeading(
-                    title: 'Popular Products',
-                    showactionbutton: true,
-                    giventextcolor: THelperFunctions.isDarkmode(context) ? TColors.white : TColors.dark,
-                    onpressed: ()=> Get.to(()=> const AllProducts())
-                  ),
+                  TSectionHeading(
+                      title: 'Popular Products',
+                      showactionbutton: true,
+                      giventextcolor: THelperFunctions.isDarkmode(context)
+                          ? TColors.white
+                          : TColors.dark,
+                      onpressed: () => Get.to(() =>  AllProducts(
+                            title: 'Popular Products',
+                          
+                            futureMethod: controller.fetchAllFeaturedProducts(),
+                          ))),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
                   //popular products
-                  Obx(
-                    (){
-                      if(controller.isLoading.value) return const TVerticalProductShimmer();
-                      
-                      if(controller.featuredProducts.isEmpty){
-                        return Center(
-                          child: Text('No Data Found', style: Theme.of(context).textTheme.bodyMedium,),
-                        );
-                      }
-                      return TGridLayout(
-                      itemcount: controller.featuredProducts.length,
-                      itemBuilder: (_,index) =>  TProductCArdVertical(product:  controller.featuredProducts[index]),
-                    );
-                    
+                  Obx(() {
+                    if (controller.isLoading.value)
+                      return const TVerticalProductShimmer();
+
+                    if (controller.featuredProducts.isEmpty) {
+                      return Center(
+                        child: Text(
+                          'No Data Found',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      );
                     }
-                   
-                  ),
+                    return TGridLayout(
+                      itemcount: controller.featuredProducts.length,
+                      itemBuilder: (_, index) => TProductCArdVertical(
+                          product: controller.featuredProducts[index]),
+                    );
+                  }),
                 ],
               ),
             ),

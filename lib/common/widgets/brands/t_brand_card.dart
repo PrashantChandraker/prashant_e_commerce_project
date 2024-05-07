@@ -3,19 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/TRoundedContainer.dart';
 import 'package:prashant_e_commerce_project/common/widgets/images/t_circular_images.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/T_brand_title_text_with_verifiedIcon.dart';
+import 'package:prashant_e_commerce_project/features/shop/models/brand_model.dart';
 import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/enums.dart';
-import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
 class TBrandcard extends StatelessWidget {
   const TBrandcard({
-    super.key, required this.showBorder, this.ontap,
+    super.key, required this.showBorder, this.ontap, required this.brand,
   });
 
+
+final BrandModel brand;
 final bool showBorder;
 final void Function ()? ontap;
+
+
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -32,13 +37,13 @@ final void Function ()? ontap;
             // iCON
             Flexible(
               child: TCircularImage(
-                isNetworkImage: false,
-                image: TImages.shirt,
+                isNetworkImage: true,
+                image: brand.image,
                 backgroundColor: Colors.transparent,
-                overlaycolor:
-                    THelperFunctions.isDarkmode(context)
-                        ? TColors.white
-                        : TColors.black,
+                // overlaycolor:
+                //     THelperFunctions.isDarkmode(context)
+                //         ? TColors.white
+                //         : TColors.black,
               ),
             ),
             const SizedBox(
@@ -52,12 +57,12 @@ final void Function ()? ontap;
                 crossAxisAlignment:
                     CrossAxisAlignment.start,
                 children: [
-                  const TBrandTitleWithVerifiedIcon(
-                    title: 'Nike',
+                   TBrandTitleWithVerifiedIcon(
+                    title: brand.name,
                     givenbrandtextsize: TextSizes.large,
                   ),
                   Text(
-                    '256 Products',
+                    '${brand.productsCount ?? 0} products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)
                         .textTheme

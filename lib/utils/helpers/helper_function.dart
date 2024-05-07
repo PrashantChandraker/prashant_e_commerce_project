@@ -22,7 +22,7 @@ class THelperFunctions {
       return Colors.black;
     } else if (value == 'White') {
       return Colors.white;
-    } else if (value == 'indigo') {
+    } else if (value == 'Indigo') {
       return Colors.indigo;
     } else if (value == 'Brown') {
       return Colors.brown;

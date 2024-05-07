@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:prashant_e_commerce_project/data/repositories/banners/banner_repository.dart';
+import 'package:prashant_e_commerce_project/data/repositories/brands/brand_repository.dart';
 import 'package:prashant_e_commerce_project/data/repositories/product/product_repository.dart';
 import 'package:prashant_e_commerce_project/data/services/dummy_data.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
@@ -11,6 +13,8 @@ class UploadImageToFirebase extends StatelessWidget {
   final mycontroller = CategoryRepository.instance;
   final bannercontroller = BannerRepository.instance;
   final productController =ProductRepository.instance;
+
+  final brand = Get.put(BrandRepository());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +47,10 @@ class UploadImageToFirebase extends StatelessWidget {
                     UplaodDataTile(
                       icon1: Icons.storefront_outlined,
                       text: 'Upload brands',
-                      ontapp: () {},
+                      ontapp: () {
+                        brand.uploadBrandData(DummyData.brands);
+
+                      },
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwItems,
