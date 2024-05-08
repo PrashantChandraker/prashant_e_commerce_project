@@ -34,7 +34,7 @@ class BrandProducts extends StatelessWidget {
 
 
              FutureBuilder(
-             future: controller.getBrandProducts(brand.id),
+             future: controller.getBrandProducts(brandId:  brand.id),
              builder: (context, snapshot) {
 
 

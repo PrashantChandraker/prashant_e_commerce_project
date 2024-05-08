@@ -40,7 +40,7 @@ class TCloudHelperFunctions {
     if (!snapshot.hasData || snapshot.data == null || snapshot.data!.isEmpty) {
       if (nothingFound != null) return nothingFound;
       return const Center(
-        child: Text('No data Found'),
+        child: Text('No data Found- cloud helper function'),
       );
     }
     if (snapshot.hasError) {

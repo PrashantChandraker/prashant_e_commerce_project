@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prashant_e_commerce_project/common/widgets/brands/brands_showcase.dart';
 import 'package:prashant_e_commerce_project/common/widgets/layouts/grid_layout.dart';
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_card_vertical.dart';
+import 'package:prashant_e_commerce_project/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/section_heading.dart';
-import 'package:prashant_e_commerce_project/features/shop/controllers/product/product_controller.dart';
+import 'package:prashant_e_commerce_project/features/shop/controllers/category_controller.dart';
 import 'package:prashant_e_commerce_project/features/shop/models/category_model.dart';
-import 'package:prashant_e_commerce_project/utils/constants/image.strings.dart';
+import 'package:prashant_e_commerce_project/features/shop/screens/all_Products/all_products.dart';
+import 'package:prashant_e_commerce_project/features/shop/screens/store/widgets/category_brands.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
-import 'package:prashant_e_commerce_project/utils/constants/text_strings.dart';
-
-import '../../../models/product_model.dart';
+import 'package:prashant_e_commerce_project/utils/helpers/cloud_helper_function.dart';
 
 class TCategoryTab extends StatelessWidget {
   const TCategoryTab({super.key, required this.category});
@@ -19,7 +19,7 @@ class TCategoryTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ProductController());
+    final controller = CategoryController.instance;
     return ListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -29,26 +29,52 @@ class TCategoryTab extends StatelessWidget {
           child: Column(
             children: [
               //brands
-              TBrandShowCase(
-                images: [TImages.shirt_1, TImages.nikepants, TImages.nikeshoe2],),
-                 TBrandShowCase(
-                images: [TImages.shirt_1, TImages.nikepants, TImages.nikeshoe2],),
+              CategoryBrands(category: category),
               //products
-        
-              TSectionHeading(
-                title: TTexts.mightlike,
-              
-                onpressed: () {},
-              ),
-              const SizedBox(height: TSizes.spaceBtwItems,),
-              // TGridLayout(itemcount: 8, itemBuilder: (_, index) => TProductCArdVertical(product: ProductModel.empty(),),),
 
-              TGridLayout(
-                      itemcount: controller.featuredProducts.length,
-                      itemBuilder: (_,index) =>  TProductCArdVertical(product:  controller.featuredProducts[index]),
+
+
+              FutureBuilder(
+                  future: controller.getCategoryProducts(categoryId: category.id),
+                  builder: (context, snapshot) {
+
+                    // helper function : handle loader , no record or error message
+
+                    final response = TCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader:const TVerticalProductShimmer());
+                    if(response != null) return response;
+
+                    // record found
+                    final products =snapshot.data!;
+
+
+                    return   Column(
+                  children: [
+                    TSectionHeading(
+                      title: 'You might like',
+                      onpressed: () => Get.to(AllProducts(title: category.name,
+                      futureMethod: controller.getCategoryProducts(categoryId: category.id, limit: -1),
+                      )),
                     ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
+                    TGridLayout(
+                      itemcount: products.length,
+                      itemBuilder: (_, index) =>
+                          TProductCArdVertical(product: products[index]),
+                    ),
+                  ],
+                );
+                  },
 
-               const SizedBox(height: TSizes.spaceBtwItems,),
+
+
+              
+              ),
+
+              const SizedBox(
+                height: TSizes.spaceBtwItems,
+              ),
             ],
           ),
         ),

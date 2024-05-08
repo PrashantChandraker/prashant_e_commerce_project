@@ -24,7 +24,6 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final brandController = Get.put(BrandController());
     final categories = CategoryController.instance.featuredCategories;
 
@@ -36,86 +35,95 @@ class StoreScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineMedium),
           givenactions: [
             TCartCounterIcon(
-                iconcolor: THelperFunctions.isDarkmode(context)
-                    ? TColors.white
-                    : TColors.black,
-                ),
+              iconcolor: THelperFunctions.isDarkmode(context)
+                  ? TColors.white
+                  : TColors.black,
+            ),
           ],
         ),
         body: NestedScrollView(
           headerSliverBuilder: (_, innerBoxIsScrolled) {
             return [
               SliverAppBar(
-                  automaticallyImplyLeading: false,
-                  pinned: true,
-                  floating: true,
-                  backgroundColor: THelperFunctions.isDarkmode(context)
-                      ? TColors.black
-                      : TColors.lightGrey,
-                  expandedHeight: 420,
-                  flexibleSpace: Padding(
-                    padding: const EdgeInsets.all(TSizes.defaultSpace),
-                    child: ListView(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      children: [
-                        // search bar
-                        TSearchContainer(
-                          giventext: TTexts.homeAppbarTitle,
-                          padding: EdgeInsets.zero,
-                        ),
-                        const SizedBox(height: TSizes.spaceBtwSections),
+                automaticallyImplyLeading: false,
+                pinned: true,
+                floating: true,
+                backgroundColor: THelperFunctions.isDarkmode(context)
+                    ? TColors.black
+                    : TColors.lightGrey,
+                expandedHeight: 420,
+                flexibleSpace: Padding(
+                  padding: const EdgeInsets.all(TSizes.defaultSpace),
+                  child: ListView(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: [
+                      // search bar
+                      TSearchContainer(
+                        giventext: TTexts.homeAppbarTitle,
+                        padding: EdgeInsets.zero,
+                      ),
+                      const SizedBox(height: TSizes.spaceBtwSections),
 
-                        // Brands
+                      // Brands
 
-                        TSectionHeading(
-                          title: 'Features Brands',
-                          onpressed: () => Get.to(()=> const AllBrandsScreen()),
-                        ),
-                        const SizedBox(
-                          height: TSizes.spaceBtwItems / 1.5,
-                        ),
+                      TSectionHeading(
+                        title: 'Features Brands',
+                        onpressed: () => Get.to(() => const AllBrandsScreen()),
+                      ),
+                      const SizedBox(
+                        height: TSizes.spaceBtwItems / 1.5,
+                      ),
 
-                        // Brands Grid 
-                        Obx(
-                          () {
+                      // Brands Grid
+                      Obx(() {
+                        if (brandController.isLoading.value)
+                          return const TBrandsShimmer();
 
-                            if(brandController.isLoading.value) return const TBrandsShimmer();
-
-
-                            if(brandController.featuredBrands.isEmpty) {
-                              return Center(
-                                child: Text('No data Found!', 
-                                style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white),),
-                              );
-                            }
-                           return  TGridLayout(
-                            mainAxisExtent: 80,
-                            itemcount: brandController.featuredBrands.length,
-                            itemBuilder: (_, index) {
-                              final brand = brandController.featuredBrands[index];
-                              return  TBrandcard(
-                                showBorder: true,
-                                  brand: brand,
-                                  ontap: () => Get.to(() => BrandProducts(brand: brand,)),
-                              );
-                            },
+                        if (brandController.featuredBrands.isEmpty) {
+                          return Center(
+                            child: Text(
+                              'No data Found- store.dart!',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .apply(color: Colors.white),
+                            ),
                           );
-                          }  
-                        ),
-                      ],
-                    ),
+                        }
+                        return TGridLayout(
+                          mainAxisExtent: 80,
+                          itemcount: brandController.featuredBrands.length,
+                          itemBuilder: (_, index) {
+                            final brand = brandController.featuredBrands[index];
+                            return TBrandcard(
+                              showBorder: true,
+                              brand: brand,
+                              ontap: () => Get.to(() => BrandProducts(
+                                    brand: brand,
+                                  )),
+                            );
+                          },
+                        );
+                      }),
+                    ],
                   ),
+                ),
 
-                  //TABS tab bar
-                  bottom:  TTabBar(
-                    tabs: categories.map((category) => Tab(child: Text(category.name))).toList()
-                  
-                  ),)
+                //TABS tab bar
+                bottom: TTabBar(
+                    tabs: categories
+                        .map((category) => Tab(child: Text(category.name)))
+                        .toList()),
+              )
             ];
           },
-          body:  TabBarView(
-            children: categories.map((category) => TCategoryTab(category: category,)).toList(),
+          body: TabBarView(
+            children: categories
+                .map((category) => TCategoryTab(
+                      category: category,
+                    ))
+                .toList(),
           ),
         ),
       ),

@@ -357,42 +357,42 @@ class DummyData {
         ],
         productType: 'ProductType.single'),
 
-    //     ProductModel(
-    // id: '004',
-    // title: 'Green Nike Sports Shoe',
-    // stock: 15,
-    // price: 135,
-    // isFeatured: true,
-    // thumbnail: TImages.nikeshoe2,
-    // description: 'Green Nike sports Shoe',
-    // brand: BrandModel(
-    //     id: '1',
-    //     image: TImages.shoeimage1,
-    //     name: 'Nike',
-    //     productsCount: 265,
-    //     isFeatured: true),
-    // images: [TImages.sporticon, TImages.mobilelogo, TImages.successlogo],
-    // salePrice: 30,
-    // sku: 'ABR4568',
-    // categoryId: '1',
-    // productAttributes: [
-    //   ProductAttributeModel(
-    //       name: 'Color', values: ['Green', 'Black', 'Red']),
-    //   ProductAttributeModel(
-    //       name: 'Size', values: ['EU 30', 'EU 32', 'EU34']),
-    // ],
-    // productVariations: [
-    //   ProductVariationModel(
-    //       id: '1',
-    //       stock: 34,
-    //       price: 134,
-    //       salePrice: 122.8,
-    //       image: TImages.facebook,
-    //       description:
-    //           'This is a product description for Green Nike Sport Shoe',
-    //       attributeValues: {'Color': 'Green', 'Size': 'EU 34'}),
-    // ],
-    // productType: 'ProductType.single'),
+        ProductModel(
+    id: '005',
+    title: 'Green Nike Sports Shoe',
+    stock: 15,
+    price: 135,
+    isFeatured: true,
+    thumbnail: TImages.nikeshoe2,
+    description: 'Green Nike sports Shoe',
+    brand: BrandModel(
+        id: 'Addidas',
+        image: TImages.shoeimage1,
+        name: 'Addidas',
+        productsCount: 265,
+        isFeatured: true),
+    images: [TImages.sporticon, TImages.mobilelogo, TImages.successlogo],
+    salePrice: 30,
+    sku: 'ABR4568',
+    categoryId: '1',
+    productAttributes: [
+      ProductAttributeModel(
+          name: 'Color', values: ['Green', 'Black', 'Red']),
+      ProductAttributeModel(
+          name: 'Size', values: ['EU 30', 'EU 32', 'EU34']),
+    ],
+    productVariations: [
+      ProductVariationModel(
+          id: '1',
+          stock: 34,
+          price: 134,
+          salePrice: 122.8,
+          image: TImages.facebook,
+          description:
+              'This is a product description for Green Nike Sport Shoe',
+          attributeValues: {'Color': 'Green', 'Size': 'EU 34'}),
+    ],
+    productType: 'ProductType.single'),
 
     //     ProductModel(
     // id: '005',

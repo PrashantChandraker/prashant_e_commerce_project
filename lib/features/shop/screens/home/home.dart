@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -98,33 +98,34 @@ class HomeScreen extends StatelessWidget {
                       giventextcolor: THelperFunctions.isDarkmode(context)
                           ? TColors.white
                           : TColors.dark,
-                      onpressed: () => Get.to(() =>  AllProducts(
+                      onpressed: () => Get.to(() => AllProducts(
                             title: 'Popular Products',
-                          
                             futureMethod: controller.fetchAllFeaturedProducts(),
                           ))),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
                   //popular products
-                  Obx(() {
-                    if (controller.isLoading.value)
-                      return const TVerticalProductShimmer();
+                  Obx(
+                    () {
+                      if (controller.isLoading.value)
+                        return const TVerticalProductShimmer();
 
-                    if (controller.featuredProducts.isEmpty) {
-                      return Center(
-                        child: Text(
-                          'No Data Found',
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
+                      if (controller.featuredProducts.isEmpty) {
+                        return Center(
+                          child: Text(
+                            'No Data Found',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        );
+                      }
+                      return TGridLayout(
+                        itemcount: controller.featuredProducts.length,
+                        itemBuilder: (_, index) => TProductCArdVertical(
+                            product: controller.featuredProducts[index]),
                       );
-                    }
-                    return TGridLayout(
-                      itemcount: controller.featuredProducts.length,
-                      itemBuilder: (_, index) => TProductCArdVertical(
-                          product: controller.featuredProducts[index]),
-                    );
-                  }),
+                    },
+                  ),
                 ],
               ),
             ),
