@@ -11,6 +11,7 @@ import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
+import '../../../../../common/widgets/products/favrouite_icon.dart/favourite_icon.dart';
 import '../../../models/product_model.dart';
 
 class TProductImageSlider extends StatelessWidget {
@@ -91,13 +92,10 @@ class TProductImageSlider extends StatelessWidget {
                 ),
               ),
             ),
-            const TAppBar(
+             TAppBar(
               showbackarrow: true,
-              givenactions: [
-                TCircularIcon(
-                  icon: Iconsax.heart5,
-                  color: Colors.red,
-                )
+              actions: [
+               TFavouriteIcon(productId: product.id,),
               ],
             )
           ],

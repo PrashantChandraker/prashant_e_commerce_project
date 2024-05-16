@@ -25,7 +25,7 @@ GetPage(name: TRoutes.home, page: () => const HomeScreen()),
 
 GetPage(name: TRoutes.store, page: () => const StoreScreen()),
 
-GetPage(name: TRoutes.prashant, page: () => const FavrouiteScreen()),
+GetPage(name: TRoutes.prashant, page: () => const FavouriteScreen()),
 
 GetPage(name: TRoutes.settings, page: () => const SettingsScreen()),
 

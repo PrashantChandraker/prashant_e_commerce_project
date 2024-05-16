@@ -21,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
       appBar: const TAppBar(
         // onpressed: () => Get.to(()=>SettingsScreen()),
         showbackarrow: true,
-        giventitle: Text('Profile'),
+        titlee: Text('Profile'),
       ),
       // appBar: AppBar(centerTitle: true,
       // title: Text('Profile'),

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:prashant_e_commerce_project/data/repositories/banners/banner_repository.dart';
+import 'package:prashant_e_commerce_project/data/repositories/brand_category/brand_category_repository.dart';
 import 'package:prashant_e_commerce_project/data/repositories/brands/brand_repository.dart';
 import 'package:prashant_e_commerce_project/data/repositories/product/product_repository.dart';
 import 'package:prashant_e_commerce_project/data/services/dummy_data.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
+import 'package:prashant_e_commerce_project/utils/logging/logger.dart';
 
 import 'data/repositories/categories/category_repository.dart';
 
@@ -13,6 +15,7 @@ class UploadImageToFirebase extends StatelessWidget {
   final mycontroller = CategoryRepository.instance;
   final bannercontroller = BannerRepository.instance;
   final productController =ProductRepository.instance;
+  final brandcategorycontroller = Get.put(BrandCategoryRepository());
 
   final brand = Get.put(BrandRepository());
   @override
@@ -71,6 +74,16 @@ class UploadImageToFirebase extends StatelessWidget {
                     const SizedBox(
                       height: TSizes.spaceBtwItems,
                     ),
+                      UplaodDataTile(
+                      icon1: Icons.candlestick_chart,
+                      text: 'Upload Brand Category',
+                     ontapp: () {
+                      brandcategorycontroller.uploadBrandCategory(DummyData.brandCategory);
+                     TLoggerHelper.error('message');
+                     } 
+                    ),
+
+
                   
                   ],
                 ),

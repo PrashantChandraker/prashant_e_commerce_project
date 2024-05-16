@@ -20,7 +20,7 @@ class BrandProducts extends StatelessWidget {
     final controller = BrandController.instance;
     return  Scaffold(
       appBar:  TAppBar(
-        giventitle: Text(brand.name),
+        titlee: Text(brand.name),
         showbackarrow: true,
       ),
       body: SingleChildScrollView(

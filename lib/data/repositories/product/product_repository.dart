@@ -23,9 +23,7 @@ class ProductRepository extends GetxController {
     try {
       final snapshot = await _db
           .collection('Products')
-          .where('IsFeatured', isEqualTo: true)
-          .limit(4)
-          .get();
+          .where('IsFeatured', isEqualTo: true).get();
       return snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
@@ -72,6 +70,27 @@ class ProductRepository extends GetxController {
     }
   }
 
+
+  //Get products based on the query for favourites
+  Future<List<ProductModel>> getFavouriteProducts(
+      List<String> productIds) async {
+    try {
+      final snapshot = await _db
+          .collection('Products')
+          .where(FieldPath.documentId, whereIn: productIds)
+          .get();
+      return snapshot.docs
+          .map((querySnapshot) => ProductModel.fromSnapshot(querySnapshot))
+          .toList();
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformExceptions(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong.Please try again';
+    }
+  }
+
   Future<List<ProductModel>> getProductsForBrand(
       {required String brandId, int limit = -1}) async {
     try {
@@ -100,18 +119,12 @@ class ProductRepository extends GetxController {
   }
 
   Future<List<ProductModel>> getProductsForCategory(
-      {required String categoryId, int limit = 4}) async {
+      {required String categoryId,}) async {
     try {
       // query to get all documents where product id matches the provided categoryId and fetch limitted and unlimited data based on limit
-      QuerySnapshot productcategoryQuery = limit == -1
-          ? await _db
+      QuerySnapshot productcategoryQuery = await _db
               .collection('ProductCategory')
               .where('categoryId', isEqualTo: categoryId)
-              .get()
-          : await _db
-              .collection('ProductCategory')
-              .where('categoryId', isEqualTo: categoryId)
-              .limit(limit)
               .get();
 
           // extract products from the documnets 

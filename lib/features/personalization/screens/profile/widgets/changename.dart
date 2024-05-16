@@ -18,7 +18,7 @@ class ChangeName extends StatelessWidget {
       //custom Appbar
       appBar: TAppBar(
         showbackarrow: true,
-        giventitle: Text(
+        titlee: Text(
           'Change Name',
           style: Theme.of(context).textTheme.headlineSmall,
         ),

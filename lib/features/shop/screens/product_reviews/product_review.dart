@@ -14,7 +14,7 @@ class ProductReviewScreen extends StatelessWidget {
     return    Scaffold(
       //appbar
 
-        appBar: const TAppBar(giventitle: Text('Reviews and Ratings'),showbackarrow: true, centerTitle: true,),
+        appBar: const TAppBar(titlee: Text('Reviews and Ratings'),showbackarrow: true,),
 
         //body
 

@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class BrandCategoryModel {
   final String brandId;
-  final String categoryId;
+   String categoryId;
 
   BrandCategoryModel({
     required this.brandId,
@@ -20,8 +20,8 @@ class BrandCategoryModel {
     final data = snapshot.data() as Map<String, dynamic>;
 
     return BrandCategoryModel(
-      brandId: data['brandId'] as String,
-      categoryId: data['categoryId'] as String,
+      brandId: data['brandId']  ?? '',
+      categoryId: data['categoryId'] ?? '',
     );
   }
 }

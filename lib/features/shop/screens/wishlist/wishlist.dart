@@ -1,54 +1,81 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:prashant_e_commerce_project/common/widgets/appbar/appbar.dart';
-import 'package:prashant_e_commerce_project/common/widgets/icons/t_circular_icons.dart';
-import 'package:prashant_e_commerce_project/common/widgets/layouts/grid_layout.dart';
-import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_card_vertical.dart';
-import 'package:prashant_e_commerce_project/features/shop/controllers/product/product_controller.dart';
-import 'package:prashant_e_commerce_project/features/shop/screens/home/home.dart';
-import 'package:prashant_e_commerce_project/utils/constants/colors.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
-import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
-class FavrouiteScreen extends StatelessWidget {
-  const FavrouiteScreen({super.key});
+import '../../../../common/widgets/icons/t_circular_icons.dart';
+import '../../../../common/widgets/layouts/grid_layout.dart';
+import '../../../../common/widgets/loaders/animation_loader.dart';
+import '../../../../common/widgets/products/products_card/product_card_vertical.dart';
+import '../../../../common/widgets/shimmers/vertical_product_shimmer.dart';
+import '../../../../navigation.dart';
+import '../../../../utils/constants/image.strings.dart';
+import '../../../../utils/helpers/cloud_helper_function.dart';
+import '../../controllers/product/favourites_controller.dart';
+import '../home/home.dart';
+
+class FavouriteScreen extends StatelessWidget {
+  const FavouriteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ProductController());
+    final controller = FavouritesController.instance;
+
+    //  final controller = Get.put(ProductController());
+
     return Scaffold(
-      appBar: TAppBar(
-        // backgroundColor: TColors.primary,
-        giventitle: Text(
-          'WishList',
+      appBar: AppBar(
+        title: Text(
+          'Wishlist',
           style: Theme.of(context).textTheme.headlineMedium,
         ),
-        givenactions: [
+        actions: [
           TCircularIcon(
             icon: Iconsax.add,
-            color: THelperFunctions.isDarkmode(context)
-                ? TColors.white
-                : TColors.black,
-            onPressed: () => Get.to(
-              const HomeScreen(),
-            ),
-          ),
+            onPressed: () => Get.to(const HomeScreen()),
+            color: Colors.white,
+          )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
-          child: Column(
-            children: [
-              // TGridLayout(itemcount: 6, itemBuilder: (_, index) => TProductCArdVertical(product: ProductModel.empty(),))
+     body: SingleChildScrollView(
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
 
-              TGridLayout(
-                itemcount: controller.featuredProducts.length,
+        //product grid
+        child: Obx(
+          () => FutureBuilder(
+            future: controller.favouriteProducts(),
+            builder: (context, snapshot) {
+              //Nothing Found widget
+              final emptywidget = TAnimationLoaderWidget(
+                text: 'oops! whishlist is empty',
+                animation: TImages.empty,
+                showAction: true,
+                actionText: 'Lets\'s add some',
+                onActionPressed: 
+                () {
+                  print('click');
+                  Get.to(() => const NavigationMenu());
+                }
+              );
+
+              const loader = TVerticalProductShimmer(
+                itemCount: 6,
+              );
+              final widget = TCloudHelperFunctions.checkMultiRecordState(
+                  snapshot: snapshot,
+                  loader: loader,
+                  nothingFound: emptywidget);
+              if (widget != null) {
+                return widget;
+              }
+              final products = snapshot.data!;
+              return TGridLayout(
+                itemcount: products.length,
                 itemBuilder: (_, index) => TProductCArdVertical(
-                    product: controller.featuredProducts[index]),
-              ),
-            ],
+                  product: products[index],
+                ),
+              );
+            },
           ),
         ),
       ),

@@ -61,6 +61,7 @@ class TImages {
 
   //lottie animations
  static String loading = "assets/images/animations/lottie_animation/loading.json";
+ static String empty  = "assets/images/animations/lottie_animation/emptyWishlist.json";
 
 
  // category icons
@@ -111,6 +112,17 @@ static String  addidasblack= "assets/images/products/shoes/addidas_black.jpg";
 static String  addidasblue= "assets/images/products/shoes/addidas_blue.jpg";
 static String  addidasgrey= "assets/images/products/shoes/addidas_grey.png";
 static String  addidasred= "assets/images/products/shoes/addidas_red.jpg";
+
+
+
+//payments
+static String  applepay= "assets/images/payment/applepay.png";
+static String  cod= "assets/images/payment/cod.avif";
+static String  creditcard= "assets/images/payment/creditcard.png";
+static String  gpay= "assets/images/payment/gpay.png";
+static String  paytm= "assets/images/payment/Paytm.png";
+static String  phonepay= "assets/images/payment/phonepay.png";
+
 
 
 

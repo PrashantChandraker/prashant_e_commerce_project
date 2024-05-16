@@ -31,9 +31,9 @@ class StoreScreen extends StatelessWidget {
       length: categories.length,
       child: Scaffold(
         appBar: TAppBar(
-          giventitle: Text(TTexts.store,
+          titlee: Text(TTexts.store,
               style: Theme.of(context).textTheme.headlineMedium),
-          givenactions: [
+          actions: [
             TCartCounterIcon(
               iconcolor: THelperFunctions.isDarkmode(context)
                   ? TColors.white

@@ -3,8 +3,8 @@ import 'package:get/route_manager.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:prashant_e_commerce_project/common/styles/shadow_styles.dart';
 import 'package:prashant_e_commerce_project/common/widgets/custom_shapes/containers/TRoundedContainer.dart';
-import 'package:prashant_e_commerce_project/common/widgets/icons/t_circular_icons.dart';
 import 'package:prashant_e_commerce_project/common/widgets/images/t_rounded_images.dart';
+import 'package:prashant_e_commerce_project/common/widgets/products/products_card/add_to_cart_button.dart';
 import 'package:prashant_e_commerce_project/common/widgets/products/products_card/product_price_text.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/T_brand_title_text_with_verifiedIcon.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/product_title.dart';
@@ -16,6 +16,7 @@ import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 import 'package:prashant_e_commerce_project/utils/helpers/helper_function.dart';
 
 import '../../../../utils/constants/enums.dart';
+import '../favrouite_icon.dart/favourite_icon.dart';
 
 class TProductCArdVertical extends StatelessWidget {
   const TProductCArdVertical({super.key, required this.product});
@@ -25,9 +26,7 @@ class TProductCArdVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = ProductController.instance;
-    final salepercentage =
-        controller.calculateSalePercentage(product.price, product.salePrice);
-
+    final salepercentage = controller.calculateSalePercentage(product.price, product.salePrice);
     final dark = THelperFunctions.isDarkmode(context);
     //container with side paddings, colour , edge, shadow and radius
     return GestureDetector(
@@ -82,13 +81,10 @@ class TProductCArdVertical extends StatelessWidget {
                   ),
 
                   //favrouite icon tag
-                  const Positioned(
+                   Positioned(
                       top: 0,
                       right: 0,
-                      child: TCircularIcon(
-                        icon: Iconsax.heart5,
-                        color: Colors.red,
-                      )),
+                      child: TFavouriteIcon(productId: product.id,)),
                 ],
               ),
             ),
@@ -146,25 +142,7 @@ class TProductCArdVertical extends StatelessWidget {
                 ),
 
                 // Add to cart button
-                Container(
-                  decoration: const BoxDecoration(
-                    color: TColors.dark,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(TSizes.cardRadiusMd),
-                      bottomRight: Radius.circular(TSizes.productImageRadius),
-                    ),
-                  ),
-                  child: const SizedBox(
-                    height: TSizes.iconLg * 1.2,
-                    width: TSizes.iconLg * 1.2,
-                    child: Center(
-                      child: Icon(
-                        Iconsax.add,
-                        color: TColors.white,
-                      ),
-                    ),
-                  ),
-                ),
+                ProductCardAddToCartButton(product: product,),
               ],
             ),
           ],
@@ -173,3 +151,4 @@ class TProductCArdVertical extends StatelessWidget {
     );
   }
 }
+

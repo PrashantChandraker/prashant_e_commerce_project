@@ -11,7 +11,7 @@ class TOrderScreen extends StatelessWidget {
     return Scaffold(
       // appbar
       appBar: TAppBar(
-        giventitle: Text('My Orders',style: Theme.of(context).textTheme.headlineSmall, ),
+        titlee: Text('My Orders',style: Theme.of(context).textTheme.headlineSmall, ),
         showbackarrow: true,
         // onpressed:  () => Get.to(()=>SettingsScreen()),
       ),

@@ -18,7 +18,7 @@ class AllBrandsScreen extends StatelessWidget {
     final brandController = BrandController.instance;
     return Scaffold(
       appBar: const TAppBar(
-        giventitle: Text('Brand'),
+        titlee: Text('Brand'),
         showbackarrow: true,
       ),
       body: SingleChildScrollView(

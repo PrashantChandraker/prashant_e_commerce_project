@@ -52,7 +52,7 @@ class TCategoryTab extends StatelessWidget {
                     TSectionHeading(
                       title: 'You might like',
                       onpressed: () => Get.to(AllProducts(title: category.name,
-                      futureMethod: controller.getCategoryProducts(categoryId: category.id, limit: -1),
+                      futureMethod: controller.getCategoryProducts(categoryId: category.id,),
                       )),
                     ),
                     const SizedBox(

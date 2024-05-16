@@ -27,7 +27,7 @@ final Future<List<ProductModel>>? futureMethod;
     final controller = Get.put(AllProductsController());
     return  Scaffold(
       appBar: TAppBar(
-        giventitle: Text(title),
+        titlee: Text(title),
         showbackarrow: true,
       ),
       body: SingleChildScrollView(

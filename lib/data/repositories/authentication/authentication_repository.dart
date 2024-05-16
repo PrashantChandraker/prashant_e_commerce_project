@@ -13,6 +13,7 @@ import 'package:prashant_e_commerce_project/utils/exceptions/firebase_auth_excep
 import 'package:prashant_e_commerce_project/utils/exceptions/firebase_exception.dart';
 import 'package:prashant_e_commerce_project/utils/exceptions/format_exception.dart';
 import 'package:prashant_e_commerce_project/utils/exceptions/platform_exception.dart';
+import 'package:prashant_e_commerce_project/utils/local_storage/storage_utility.dart';
 
 import '../user/user_repositoy.dart';
 
@@ -38,12 +39,16 @@ class AuthenticationRepsitory extends GetxController {
     screenRedirect();
   }
 
-//function to show RElevant Screen and redirect accordingly
+//function to determine RElevant Screen and redirect accordingly
 
    void  screenRedirect() async {
     final user = _auth.currentUser;
     if (user != null) {
+      //if the user is logged in
       if (user.emailVerified) {
+        // initialize user specific storage
+          await TLocalStorage.init(user.uid);
+        //if the user email is verified, navigate to the main navigation menu
         Get.offAll(() => const NavigationMenu());
       } else {
         Get.offAll(() => VerifyEmailScreen(

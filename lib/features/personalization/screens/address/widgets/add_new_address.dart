@@ -1,106 +1,132 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:flutter/widgets.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:prashant_e_commerce_project/common/widgets/appbar/appbar.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 
-class AddNewAddressScreen extends StatelessWidget {
-  const AddNewAddressScreen({super.key});
+import '../../../../../common/widgets/appbar/appbar.dart';
+import '../../../../../utils/validators/validation.dart';
+import '../../../controllers/address_controller.dart';
+
+class AddNewAdressScreen extends StatelessWidget {
+  const AddNewAdressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = AddressController.instance;
+
     return Scaffold(
-      appBar: TAppBar(
+      appBar: const TAppBar(
         showbackarrow: true,
-        // onpressed:  () => Get.back(),
-        giventitle: Text(
-          'Add your new Address',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        titlee: Text('Add new adress'),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(TSizes.defaultSpace),
-          child: Form(
-              child: Column(
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
+        child: Form(
+          key: controller.addressFormKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              TextFormField(
-                decoration: const InputDecoration(
-                    prefixIcon: Icon(Iconsax.user), labelText: 'Name'),
-              ),
-              const SizedBox(
-                height: TSizes.spaceBtwInputFields,
-              ),
-              TextFormField(
-                decoration: const InputDecoration(
-                    prefixIcon: Icon(Iconsax.mobile),
-                    labelText: 'Phone Number'),
-              ),
-              const SizedBox(
-                height: TSizes.spaceBtwInputFields,
-              ),
-              Row(
+              Column(
                 children: [
-                  Expanded(
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.streetview_sharp),
-                          labelText: 'Street'),
-                    ),
+                  TextFormField(
+                    controller: controller.name,
+                    validator: (value) =>
+                        TValidator.validateEmptyText('Name', value),
+                    decoration: const InputDecoration(
+                        prefixIcon: Icon(
+                          Iconsax.user,   
+                        ),
+                        labelText: 'Name'),
                   ),
-                  const SizedBox(
-                    width: TSizes.spaceBtwInputFields,
+                  const SizedBox(height: TSizes.spaceBtwInputFields),
+                  TextFormField(
+                    controller: controller.phoneNumber,
+                    validator: TValidator.validatePhoneNumber,
+                    decoration: const InputDecoration(
+                        prefixIcon: Icon(
+                          Iconsax.mobile,
+                        ),
+                        labelText: 'mobile'),
                   ),
-                  Expanded(
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                          prefixIcon: Icon(Iconsax.code),
-                          labelText: 'Postal Code'),
-                    ),
+                  const SizedBox(height: TSizes.spaceBtwInputFields),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: controller.street,
+                          validator: (value) =>
+                              TValidator.validateEmptyText('Street', value),
+                          decoration: const InputDecoration(
+                              prefixIcon: Icon(
+                                Iconsax.building_3,
+                              ),
+                              labelText: 'Street'),
+                        ),
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          controller: controller.postalCode,
+                          validator: (value) => TValidator.validateEmptyText(
+                              'Postal Code', value),
+                          decoration: const InputDecoration(
+                              prefixIcon: Icon(
+                                Iconsax.code,
+                              ),
+                              labelText: 'Postal code'),
+                        ),
+                      ),
+                    ],
                   ),
+                  const SizedBox(height: TSizes.spaceBtwInputFields),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: controller.city,
+                          validator: (value) =>
+                              TValidator.validateEmptyText('City', value),
+                          decoration: const InputDecoration(
+                              prefixIcon: Icon(
+                                Iconsax.building,
+                              ),
+                              labelText: 'City'),
+                        ),
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          controller: controller.state,
+                          validator: (value) =>
+                              TValidator.validateEmptyText('State', value),
+                          decoration: const InputDecoration(
+                              prefixIcon: Icon(
+                                Iconsax.code,
+                              ),
+                              labelText: 'State'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwInputFields),
+                  TextFormField(
+                    controller: controller.country,
+                    validator: (value) =>
+                        TValidator.validateEmptyText('Country', value),
+                    decoration: const InputDecoration(
+                        prefixIcon: Icon(Iconsax.global), labelText: 'Country'),
+                  ),
+                  const SizedBox(height: TSizes.defaultSpace),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                        onPressed: () => controller.addNewAddress(),
+                        child: const Text('Save')),
+                  )
                 ],
-              ),
-              const SizedBox(
-                height: TSizes.spaceBtwInputFields,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                          prefixIcon: Icon(Iconsax.building_31),
-                          labelText: 'City'),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: TSizes.spaceBtwInputFields,
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.location_on),
-                          labelText: 'State'),
-                    ),
-                  ),
-                ],
-              ),
-               const SizedBox(
-                height: TSizes.spaceBtwInputFields,
-              ),
-              TextFormField(
-                decoration: const InputDecoration(
-                    prefixIcon: Icon(Iconsax.global),
-                    labelText: 'Country'),
-              ), 
-               const SizedBox(
-                height: TSizes.defaultSpace,
-              ),
-
-              SizedBox(width: double.infinity,
-              child: ElevatedButton(onPressed:() => Get.back(), child: const Text('Save')),
               )
             ],
-          )),
+          ),
         ),
       ),
     );

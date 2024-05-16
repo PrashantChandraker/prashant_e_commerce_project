@@ -31,7 +31,7 @@ class SettingsScreen extends StatelessWidget {
               thechild: Column(
                 children: [
                   TAppBar(
-                    giventitle: Text(
+                    titlee: Text(
                       'Account',
                       style: Theme.of(context)
                           .textTheme
