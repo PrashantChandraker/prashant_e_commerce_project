@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:prashant_e_commerce_project/common/widgets/texts/section_heading.dart';
 import 'package:prashant_e_commerce_project/features/shop/models/product_model.dart';
+import 'package:prashant_e_commerce_project/features/shop/screens/cart/cart.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/product_details/widgets/Tbottom_add_to_cart.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
@@ -21,7 +22,9 @@ class ProductDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar:  TBottomAddToCart(product:product,),
+      bottomNavigationBar: TBottomAddToCart(
+        product: product,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -51,7 +54,9 @@ class ProductDetails extends StatelessWidget {
 
                   /// attributes
                   if (product.productType == ProductType.variable.toString())
-                     ProductAttributes(product: product,),
+                    ProductAttributes(
+                      product: product,
+                    ),
                   if (product.productType == ProductType.variable.toString())
                     const SizedBox(
                       height: TSizes.spaceBtwSections,
@@ -61,7 +66,7 @@ class ProductDetails extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => Get.to(() => CartScreen()),
                       child: const Text('Checkout'),
                     ),
                   ),

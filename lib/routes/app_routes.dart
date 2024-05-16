@@ -3,6 +3,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:prashant_e_commerce_project/features/authentication/screens/onBoarding/onboarding.dart';
 import 'package:prashant_e_commerce_project/features/authentication/screens/signup/signup.dart';
 import 'package:prashant_e_commerce_project/features/personalization/screens/settings/settings.dart';
+import 'package:prashant_e_commerce_project/navigation.dart';
 import 'package:prashant_e_commerce_project/routes/routes.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/cart/cart.dart';
 import 'package:prashant_e_commerce_project/features/shop/screens/checkout/checkout.dart';
@@ -50,6 +51,8 @@ GetPage(name: TRoutes.signIn, page: () => const LoginScreen()),
  GetPage(name: TRoutes.forgetPassword, page: () => const ForgetPassword()),
 
 GetPage(name: TRoutes.onBoarding, page: () => const OnBoardScreen()),
+
+GetPage(name: TRoutes.navigation, page: () => const NavigationMenu()),
 
 // Add more GetPage entries as needed
   ];

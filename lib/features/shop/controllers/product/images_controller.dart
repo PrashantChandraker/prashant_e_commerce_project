@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:photo_view/photo_view.dart';
 import 'package:prashant_e_commerce_project/utils/constants/sizes.dart';
 
 import '../../models/product_model.dart';
@@ -43,7 +44,7 @@ class ImagesController extends GetxController {
       fullscreenDialog: true,
       () => Dialog.fullscreen(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -52,7 +53,22 @@ class ImagesController extends GetxController {
                   vertical: TSizes.defaultSpace * 2,
                   horizontal: TSizes.defaultSpace),
             ),
-          Image.network(image),
+
+            Container(
+              //  clipBehavior: Clip.none,
+              height: 250,
+              width: 500,
+              decoration: BoxDecoration(),
+              child: PhotoView(
+                imageProvider: NetworkImage(image),
+                minScale: PhotoViewComputedScale.contained,
+                maxScale: PhotoViewComputedScale.covered *
+                    2.0, // Adjust the maximum scale factor as needed
+                initialScale: PhotoViewComputedScale.contained,
+              ),
+            ),
+
+            // Image.network(image),
             const SizedBox(height: TSizes.spaceBtwSections),
             Align(
               alignment: Alignment.bottomCenter,
@@ -61,7 +77,8 @@ class ImagesController extends GetxController {
                 child: OutlinedButton(
                     onPressed: () => Get.back(), child: const Text('Close')),
               ),
-            )
+            ),
+            const SizedBox(height: TSizes.spaceBtwSections),
           ],
         ),
       ),

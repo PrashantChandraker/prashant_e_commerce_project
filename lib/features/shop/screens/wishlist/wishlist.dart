@@ -20,6 +20,7 @@ class FavouriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = FavouritesController.instance;
+    final navigationcontroller = Get.put(NavigationController());
 
     //  final controller = Get.put(ProductController());
 
@@ -53,8 +54,9 @@ class FavouriteScreen extends StatelessWidget {
                 actionText: 'Lets\'s add some',
                 onActionPressed: 
                 () {
-                  print('click');
-                  Get.to(() => const NavigationMenu());
+                  // print('click');
+                  navigationcontroller.selectedIndex.value = (navigationcontroller.selectedIndex.value=0) ;
+                
                 }
               );
 
