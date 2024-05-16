@@ -151,6 +151,7 @@ class ProductRepository extends GetxController {
     }
   }
 
+
   //Upload dummydata to the cloud firestore
 
   Future<void> uploadProductData(List<ProductModel> products) async {
@@ -241,5 +242,7 @@ class ProductRepository extends GetxController {
     } catch (e) {
       throw e.toString();
     }
+
+
   }
 }

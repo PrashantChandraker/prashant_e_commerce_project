@@ -38,7 +38,7 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     Obx(() {
                       final networkImage = controller.user.value.profilePicture;
-                      final image = networkImage.isNotEmpty
+                      final Image = networkImage.isNotEmpty
                           ? networkImage
                           : TImages.demouser;
                       return controller.imageuploading.value
@@ -48,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
                               radius: 80,
                             )
                           : TCircularImage(
-                              image: image,
+                              image: Image,
                               width: 80,
                               height: 80,
                               isNetworkImage: networkImage.isNotEmpty,

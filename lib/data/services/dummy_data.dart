@@ -33,66 +33,34 @@ class DummyData {
   // List of all categories
   static final List<CategoryModel> categories = [
     CategoryModel(
-        id: '1', name: 'Sports', image: TImages.sporticon, isFeatured: true),
+        id: '1', name: 'Sports', image: TImages.sporticon, isFeatured: true, parentId: '1'),
     CategoryModel(
         id: '2',
         name: 'Furniture',
         image: TImages.furnitureicon,
-        isFeatured: true),
+        isFeatured: true,
+        parentId: '2'),
     CategoryModel(
         id: '3',
         name: 'Electronics',
         image: TImages.electronicsicon,
-        isFeatured: true),
+        isFeatured: true,
+        parentId: '3'
+        ),
     CategoryModel(
-        id: '4', name: 'Clothes', image: TImages.clothicon, isFeatured: true),
+        id: '4', name: 'Clothes', image: TImages.clothicon, isFeatured: true, parentId: '4'),
     CategoryModel(
         id: '5',
         name: 'Cosmetics',
         image: TImages.cosmeticsicon,
-        isFeatured: true),
+        isFeatured: true,
+        parentId: '5'
+        ),
 
 
         // sub categories
-         CategoryModel(
-        id: '6',
-        name: 'Suraj',
-        image: TImages.successlogo,
-        isFeatured: true,
-         parentId: "1",
-        ),
-
-           CategoryModel(
-        id: '7',
-        name: 'sidhhi',
-        image: TImages.successlogo,
-        isFeatured: true,
-         parentId: "1",
-        ),
-
-           CategoryModel(
-        id: '8',
-        name: 'rashmi',
-        image: TImages.successlogo,
-        isFeatured: true,
-         parentId: "1",
-        ),
-
-           CategoryModel(
-        id: '9',
-        name: 'pashant',
-        image: TImages.successlogo,
-        isFeatured: true,
-         parentId: "1",
-        ),
-
-        CategoryModel(
-        id: '10',
-        name: 'sai',
-        image: TImages.successlogo,
-        isFeatured: true,
-         parentId: "1",
-        ),
+     
+        
 
 
 
